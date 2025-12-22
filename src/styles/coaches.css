@@ -1,0 +1,104 @@
+.coaches {
+  padding: 60px 0;
+  position: relative;
+  width: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(33, 33, 33, 1);
+    z-index: -1;
+  }
+  h3 {
+    font-size: 20px;
+    letter-spacing: -1%;
+    line-height: 115%;
+    color: var(--text-color2);
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: rgba(255, 255, 255, 0.2);
+    border-radius: 7px;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+  }
+  h2 {
+    font-size: 48px;
+    letter-spacing: -3%;
+    line-height: 115%;
+    color: var(--text-color2);
+    padding-top: 12px;
+  }
+}
+
+.coach-card img {
+  width: 385px;
+  height: 370px;
+  border-radius: 16px 16px 0 0;
+  user-select: none;
+  pointer-events: none;
+}
+
+.coaches-container {
+  padding-top: 50px;
+}
+
+.coach-card {
+  background-color: rgba(139, 139, 139, 0.2);
+  display: flex;
+  flex-direction: column;
+  width: fit-content;
+  max-width: 385px;
+  overflow: hidden;
+  border-radius: 16px;
+  color: #d0d0d0;
+  position: relative;
+  border: 1px solid rgba(255, 255, 255, 0.3);
+  p b {
+    color: var(--text-color2);
+  }
+  h4 {
+    position: absolute;
+    background-color: #060606;
+    border-radius: 10px;
+    padding: 14px 30px;
+    border: 1px solid #ffffff;
+    color: var(--text-color2);
+    left: 50%;
+    transform: translateX(-50%);
+    top: 21px;
+    font-size: 20px;
+    line-height: 115%;
+  }
+  .coach-info {
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    line-height: 135%;
+  }
+  .coach-list {
+    display: flex;
+    gap: 12px;
+    li {
+      padding: 7px 12px;
+      background-color: #060606;
+      border-radius: 6px;
+      border: 1px solid #f1d927;
+      font-size: 14px;
+      line-height: 115%;
+      color: var(--text-color2);
+    }
+  }
+}
+
+.coaches-list {
+  display: flex;
+  gap: 20px;
+  overflow-x: auto;
+  width: 100%;
+}

@@ -1,0 +1,9 @@
+.rning-line {
+  background-color: #f1d927;
+  padding: 10px;
+  width: 100%;
+  span {
+    margin-right: 30px;
+    font-size: 16px;
+  }
+}

@@ -1,0 +1,25 @@
+.personal-trn-bg {
+  position: absolute;
+  inset: 0;
+  z-index: -999;
+  left: -150px;
+}
+
+.personal-trainings {
+  position: relative;
+  padding-top: 60px;
+  padding-bottom: 112px;
+  h3 {
+    font-size: 48px;
+    font-weight: 600;
+    line-height: 115%;
+    letter-spacing: -4%;
+    color: var(--text-color2);
+  }
+}
+
+.trainings-list {
+  padding-top: 50px;
+  display: flex;
+  justify-content: space-between;
+}
