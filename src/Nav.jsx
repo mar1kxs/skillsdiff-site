@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "./styles/nav.css";
 
 import logo from "./assets/logo.svg";
@@ -12,9 +13,9 @@ const Nav = () => {
   return (
     <nav>
       <div className="nav-container">
-        <a href="/">
+        <Link to="/">
           <img src={logo} alt="Skillsdiff Logo" style={{ cursor: "pointer" }} />
-        </a>
+        </Link>
 
         <div className="nav-game">
           <img src={navGame} alt="navgame icon" />
