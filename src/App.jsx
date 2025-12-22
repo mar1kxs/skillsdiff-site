@@ -1,4 +1,10 @@
-import { BrowserRouter, Routes, Route, Link, HashRouter } from "react-router-dom";
+import {
+  BrowserRouter,
+  Routes,
+  Route,
+  Link,
+  HashRouter,
+} from "react-router-dom";
 import Nav from "./Nav";
 import Main from "./pages/MainPage";
 import "./App.css";
@@ -17,7 +23,7 @@ function App() {
             <Route path="/" element={<Main />} />
             <Route path="/dota2" element={<DotaPage />}></Route>
           </Routes>
-        </HashR>
+        </HashRouter>
         <Footer />
       </div>
     </>
