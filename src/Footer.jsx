@@ -1,75 +1,104 @@
 import React from "react";
-import "../src/styles/footer.css";
+import "../styles/footer.css";
+
+import footerLogo from "../assets/footerlogo.svg";
 
 const Footer = () => {
   return (
     <footer>
       <div className="footer">
-        <img src="../src/assets/footerlogo.svg" alt="footer logo" />
+        <img src={footerLogo} alt="SkillsDiff footer logo" />
+
         <ul className="footer-list">
           <li>
             <h4>Тренировки</h4>
             <ul className="inside-list">
               <li>
-                <a href="#">Dota 2</a>
+                <a href="#/dota2">Dota 2</a>
               </li>
               <li>
-                <a href="#">Valorant</a>
+                <a href="#/valorant">Valorant</a>
               </li>
               <li>
-                <a href="#">CS2</a> <span>скоро</span>
+                <span>
+                  CS2 <em>скоро</em>
+                </span>
               </li>
             </ul>
           </li>
+
           <li>
             <h4>Наши платформы</h4>
             <ul className="inside-list">
               <li>
-                <a href="#">Telegram</a>
+                <a
+                  href="https://t.me/skillsdiff"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Telegram
+                </a>
               </li>
               <li>
-                <a href="#">TikTok</a>
+                <a href="#" aria-disabled="true">
+                  TikTok
+                </a>
               </li>
               <li>
-                <a href="#">Youtube</a>
+                <a href="#" aria-disabled="true">
+                  YouTube
+                </a>
               </li>
               <li>
-                <a href="#">Twitch</a>
+                <a href="#" aria-disabled="true">
+                  Twitch
+                </a>
               </li>
             </ul>
           </li>
+
           <li>
-            <h4>Условие</h4>
+            <h4>Условия</h4>
             <ul className="inside-list">
               <li>
-                <a href="#">Правила тренировок</a>
+                <a href="#/rules">Правила тренировок</a>
               </li>
               <li>
-                <a href="#">Договор публичной оферты</a>
+                <a href="#/offer">Договор публичной оферты</a>
               </li>
               <li>
-                <a href="#">Политика конфиденциальности</a>
+                <a href="#/privacy">Политика конфиденциальности</a>
               </li>
             </ul>
           </li>
+
           <li>
             <h4>Поддержка</h4>
             <ul className="inside-list">
               <li>
-                <a href="#">Связаться с нами</a>
+                <a
+                  href="https://t.me/skillsdiff"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Связаться с нами
+                </a>
               </li>
               <li>
-                <a href="#">Онлайн чат</a>
+                <a href="#" aria-disabled="true">
+                  Онлайн чат
+                </a>
               </li>
               <li>
-                <a href="#">Хочу стать тренером</a>
+                <a href="#/coach">Хочу стать тренером</a>
               </li>
               <li>
-                <a href="#">Партнерство</a>
+                <a href="#/partnership">Партнерство</a>
               </li>
             </ul>
           </li>
         </ul>
+
         <p>© 2025 SkillsDiff. Все права защищены.</p>
       </div>
     </footer>

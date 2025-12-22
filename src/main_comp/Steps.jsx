@@ -1,14 +1,17 @@
 import React from "react";
 import "../styles/steps.css";
 
+import wave from "../assets/Wave.svg";
+
 const Steps = () => {
   return (
     <section className="steps">
-      <img src="../src/assets/Wave.svg" alt="backgroundWave" />
+      <img src={wave} alt="background wave" />
       <h3>Как это работает?</h3>
       <h2>
         Твой путь к <span style={{ color: "#F1D927" }}>скиллу</span>
       </h2>
+
       <ul className="steps-list">
         <li>
           <span>01</span>
@@ -18,6 +21,7 @@ const Steps = () => {
             хочешь прокачаться, и начни путь к победам
           </p>
         </li>
+
         <li>
           <span>02</span>
           <h4>Выбери удобный способ оплаты</h4>
@@ -26,6 +30,7 @@ const Steps = () => {
             удобство в одном клике
           </p>
         </li>
+
         <li>
           <span>03</span>
           <h4>Познакомься с тренером</h4>
@@ -34,6 +39,7 @@ const Steps = () => {
             развитии твоих навыков
           </p>
         </li>
+
         <li>
           <span>04</span>
           <h4>Приступай к тренировкам</h4>

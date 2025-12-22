@@ -1,39 +1,51 @@
 import React from "react";
 import "../styles/games.css";
 import { useNavigate } from "react-router-dom";
+
+import valorantCard from "../assets/ValorantCard.png";
+import valorantSmall from "../assets/ValorantSmall.png";
+import dotaCard from "../assets/DOTA2Card.png";
+import dotaSmall from "../assets/dotaSmall.png";
+import cs2Card from "../assets/CS2Card.png";
+import csSmall from "../assets/csSmall.png";
+
 const Games = () => {
   const navigate = useNavigate();
+
   return (
     <section className="games-parent">
       <ul className="games-list">
-        <li onClick={() => navigate("/valorant")}>
-          <img src="../src/assets/ValorantCard.png" alt="ValorantCardBG" />
+        <li onClick={() => navigate("/valorant")} role="button" tabIndex={0}>
+          <img src={valorantCard} alt="Valorant card background" />
           <div>
             Valorant{" "}
             <span>
-              <img src="../src/assets/ValorantSmall.png" alt="Valorant icon" />
+              <img src={valorantSmall} alt="Valorant icon" />
             </span>
           </div>
         </li>
-        <li onClick={() => navigate("/dota2")}>
-          <img src="../src/assets/DOTA2Card.png" alt="DOTA2CardBG" />
+
+        <li onClick={() => navigate("/dota2")} role="button" tabIndex={0}>
+          <img src={dotaCard} alt="Dota 2 card background" />
           <div>
             Dota 2
             <span>
-              <img src="../src/assets/dotaSmall.png" alt="DOTA2 icon" />
+              <img src={dotaSmall} alt="Dota 2 icon" />
             </span>
           </div>
         </li>
-        <li>
-          <img src="../src/assets/CS2Card.png" alt="CS2CardBG" />
+
+        <li aria-disabled="true">
+          <img src={cs2Card} alt="CS2 card background" />
           <div>
             Скоро
             <span>
-              <img src="../src/assets/csSmall.png" alt="CS icon" />
+              <img src={csSmall} alt="CS icon" />
             </span>
           </div>
         </li>
-        <li>
+
+        <li aria-disabled="true">
           <img src="" alt="" />
           <div>
             Секрет

@@ -1,6 +1,6 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import "../styles/Faq.css";
+import faqImg from "../assets/faq.png";
 
 const faqData = [
   {
@@ -49,24 +49,28 @@ export default function FAQ() {
   const [openIndex, setOpenIndex] = useState(null);
 
   const toggle = (index) => {
-    setOpenIndex(openIndex === index ? null : index);
+    setOpenIndex((prev) => (prev === index ? null : index));
   };
 
   return (
     <section className="faq">
       <h2>Часто задаваемые вопросы</h2>
+
       <div className="faq-container">
         <div className="faq-card">
-          <img src="../src/assets/faq.png" alt="faq icon" />
+          <img src={faqImg} alt="faq icon" />
           <h3>Не нашли ответ на свой вопрос?</h3>
           <p>Напишите нам в Telegram — мы ответим и поможем разобраться</p>
+
           <a
-            class="tg-btn"
-            href="https://t.me/skillsdiff#"
+            className="tg-btn"
+            href="https://t.me/skillsdiff"
+            target="_blank"
+            rel="noreferrer"
             aria-label="Telegram"
           >
             <svg
-              class="tg-icon"
+              className="tg-icon"
               width="64"
               height="64"
               viewBox="0 0 64 64"
@@ -80,16 +84,22 @@ export default function FAQ() {
             </svg>
           </a>
         </div>
+
         <div className="faq-zone">
           {faqData.map((item, index) => (
             <div
               key={index}
               className={`faq-item ${openIndex === index ? "open" : ""}`}
             >
-              <button className="faq-question" onClick={() => toggle(index)}>
+              <button
+                type="button"
+                className="faq-question"
+                onClick={() => toggle(index)}
+              >
                 {item.question}
                 <span>{openIndex === index ? "−" : "+"}</span>
               </button>
+
               <div className="faq-answer">{item.answer}</div>
             </div>
           ))}
