@@ -1,10 +1,4 @@
-import {
-  BrowserRouter,
-  Routes,
-  Route,
-  Link,
-  HashRouter,
-} from "react-router-dom";
+import { HashRouter, Routes, Route } from "react-router-dom";
 import Nav from "./Nav";
 import Main from "./pages/MainPage";
 import "./App.css";
@@ -14,19 +8,19 @@ import DotaPage from "./pages/DotaPage";
 
 function App() {
   return (
-    <>
+    <HashRouter>
       <RningLine />
       <div className="app-container">
         <Nav />
-        <HashRouter>
-          <Routes>
-            <Route path="/" element={<Main />} />
-            <Route path="/dota2" element={<DotaPage />}></Route>
-          </Routes>
-        </HashRouter>
+
+        <Routes>
+          <Route path="/" element={<Main />} />
+          <Route path="/dota2" element={<DotaPage />} />
+        </Routes>
+
         <Footer />
       </div>
-    </>
+    </HashRouter>
   );
 }
 
