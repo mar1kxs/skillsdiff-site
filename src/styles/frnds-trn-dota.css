@@ -1,61 +1,61 @@
-.personal-trn-bg {
-  position: absolute;
-  inset: 0;
-  z-index: -999;
-  left: calc(100% - 92vw);
-  width: 100vw;
-  height: 995px;
-}
-
-.personal-trainings {
+.frnds-trn {
+  padding: 60px 0;
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 109px;
+  width: 100%;
+  &::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 50%;
+    right: 50%;
+    margin-left: -50vw;
+    margin-right: -50vw;
+    width: 100vw;
+    height: 100%;
+    background-color: rgba(33, 33, 33, 1);
+    z-index: -1;
+  }
   h3 {
-    font-size: 48px;
     font-weight: 600;
+    font-size: 48px;
     line-height: 115%;
     letter-spacing: -4%;
     color: var(--text-color2);
   }
 }
 
-.trainings-list {
-  padding-top: 50px;
+.frnds-list {
   display: flex;
   justify-content: space-between;
+  padding-top: 50px;
   flex-wrap: wrap;
   align-items: center;
 }
 
-.personal-card-dota {
+.frnds-card {
   background-color: #2b2b2b;
   border-radius: 24px;
 }
 
-.personal-card-dota-heading {
+.frnds-card-header {
+  padding: 24px;
+  color: var(--text-color2);
   display: flex;
   flex-direction: column;
   gap: 20px;
-  background: linear-gradient(110deg, rgba(75, 54, 33, 1), rgba(25, 25, 25, 1));
-  color: var(--text-color2);
-  padding: 24px;
   border-radius: 24px;
+  border: 1px solid #aeaeae;
   box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
   h4 {
     font-weight: 600;
     font-size: 32px;
     letter-spacing: -2%;
   }
-  .p-first {
-    font-weight: 400;
-    font-size: 20px;
-    line-height: 135%;
-  }
-  .p-last {
+  p {
     font-weight: 500;
     font-style: italic;
     font-size: 20px;
+    line-height: 100%;
     color: #ff6c32;
   }
   .span-first {
@@ -96,7 +96,7 @@
   }
 }
 
-.personal-card-dota-footer {
+.frnds-card-footer {
   padding: 32px 24px;
   ul {
     display: flex;
@@ -115,56 +115,7 @@
   }
 }
 
-.personal-card-dota-footer ul li:first-child.checked::before {
+.frnds-card-footer ul li:first-child.checked::before {
   background: no-repeat center / contain
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%2369E430' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.checked {
-  position: relative;
-  padding-left: 28px;
-  color: var(--text-color2);
-}
-
-.checked::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  transform: translateY(-50%);
-
-  background: no-repeat center / contain
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.cross {
-  position: relative;
-  padding-left: 28px;
-}
-
-.cross::before {
-  content: "";
-  position: absolute;
-  left: 0;
-  top: 50%;
-  width: 18px;
-  height: 18px;
-  transform: translateY(-50%);
-
-  background: no-repeat center / contain
-    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6L18 18M18 6L6 18' fill='none' stroke='%23585858' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
-}
-
-.start {
-  background: linear-gradient(110deg, #5b6a2e, #3b3932);
-}
-
-.divine {
-  background: linear-gradient(110deg, #2a4783, #82288c);
-}
-
-.immortal {
-  background: linear-gradient(110deg, #2e11a4, #ff6c32);
 }

@@ -34,6 +34,8 @@
   justify-content: space-between;
   gap: 20px;
   padding-top: 130px;
+  flex-wrap: wrap;
+  align-items: center;
   li {
     display: flex;
     padding: 32px;

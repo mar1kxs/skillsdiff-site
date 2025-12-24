@@ -28,7 +28,7 @@ footer {
 .footer-list {
   color: var(--text-color2);
   display: flex;
-  gap: 107px;
+  justify-content: space-between;
   padding-top: 50px;
   h4 {
     font-size: 24px;
