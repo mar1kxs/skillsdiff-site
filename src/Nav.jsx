@@ -19,7 +19,7 @@ const Nav = () => {
 
         <div className="nav-game">
           <img src={navGame} alt="navgame icon" />
-          Выбери игру
+          <span>Выбери игру</span>
           <img src={arrow} alt="navarrow icon" />
         </div>
       </div>
@@ -27,15 +27,15 @@ const Nav = () => {
       <ul className="nav-links">
         <li>
           <img src={handshake} alt="handshake nav" />
-          Партнерство
+          <a href="">Партнерство</a>
         </li>
         <li>
           <img src={telegram} alt="telegram nav" />
-          Телеграм
+          <a href="">Телеграм</a>
         </li>
         <li>
           <img src={smile} alt="smile nav" />
-          Наши тренеры
+          <a href="">Наши тренеры</a>
         </li>
       </ul>
     </nav>

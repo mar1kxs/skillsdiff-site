@@ -1,93 +1,163 @@
 .reviews {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   padding: 112px 0;
   gap: 50px;
-
-  h2 {
-    text-align: center;
-    font-size: 48px;
-    color: var(--text-color2);
-    line-height: 100%;
-    letter-spacing: -4%;
-  }
-
-  .reviews-container {
-    width: 100%;
-  }
-
-  ul {
-    display: flex;
-    gap: 20px;
-    align-items: stretch;
-  }
-
-  ul li.review-card {
-    background-color: #313131;
-    display: flex;
-    flex-direction: column;
-    padding: 34px 32px;
-    border-radius: 20px;
-
-    min-width: 385px;
-
-    cursor: pointer;
-    user-select: none;
-
-    overflow: hidden;
-    transition: max-height 350ms ease;
-    will-change: max-height;
-  }
-
-  ul li.review-card img {
-    width: 144px;
-    user-select: none;
-    pointer-events: none;
-  }
-
-  ul li.review-card h4 {
-    color: var(--text-color2);
-    line-height: 135%;
-    letter-spacing: -2%;
-    font-size: 24px;
-    margin-top: 16px;
-  }
-
-  /* закрыто: 4 строки + ... */
-  ul li.review-card p {
-    color: #e7e7e7;
-    line-height: 135%;
-    font-size: 17px;
-    margin-top: 16px;
-
-    display: -webkit-box;
-    -webkit-box-orient: vertical;
-    -webkit-line-clamp: 4;
-    overflow: hidden;
-  }
-
-  /* открыто: полный текст */
-  ul li.review-card.open p {
-    display: block;
-    -webkit-line-clamp: unset;
-    overflow: visible;
-  }
-
-  ul li.review-card .more-reviews {
-    color: #f1d927;
-    font-weight: 500;
-    font-size: 20px;
-    line-height: 115%;
-    letter-spacing: -1%;
-    margin-top: 24px;
-
-    cursor: pointer;
-    user-select: none;
-    align-self: flex-start;
-  }
 }
 
-.dota-reviews h2 span {
-  color: #ff6c32;
+.reviews h2 {
+  text-align: center;
+  font-size: 48px;
+  color: var(--text-color2);
+  line-height: 100%;
+  letter-spacing: -4%;
+}
+
+/* full-bleed чтобы обойти app-container */
+.reviews .reviews-container {
+  width: 100vw;
+  position: relative;
+  left: 50%;
+  transform: translateX(-50%);
+  padding: 0 24px;
+}
+
+/* авто-лента */
+.reviews-auto {
+  overflow: hidden;
+}
+
+/* трек из 2 копий, едет влево */
+.reviews-auto .reviews-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: transform;
+  animation: reviews-left 28s linear infinite;
+}
+
+/* пауза при наведении */
+.reviews-auto:hover .reviews-track {
+  animation-play-state: paused;
+}
+
+/* строки */
+.reviews-row {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 20px;
+  align-items: stretch;
+
+  width: max-content;
+  margin: 0;
+  padding: 0 20px 0 0;
+  list-style: none;
+}
+
+/* карточка */
+.review-card {
+  background-color: #313131;
+  display: flex;
+  flex-direction: column;
+  padding: 34px 32px;
+  border-radius: 20px;
+
+  flex: 0 0 385px;
+  width: 385px;
+  max-width: 385px;
+
+  overflow: hidden;
+  cursor: pointer;
+  user-select: none;
+
+  transition: max-height 350ms ease;
+  will-change: max-height;
+}
+
+.review-card img {
+  width: 144px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.review-card h4 {
+  color: var(--text-color2);
+  line-height: 135%;
+  letter-spacing: -2%;
+  font-size: 24px;
+  margin-top: 16px;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* закрыто: 4 строки */
+.review-card p {
+  color: #e7e7e7;
+  line-height: 135%;
+  font-size: 17px;
+  margin-top: 16px;
+
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 4;
+  overflow: hidden;
+
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+/* открыто: полный текст */
+.review-card.open p {
+  display: block;
+  -webkit-line-clamp: unset;
+  overflow: visible;
+}
+
+.more-reviews {
+  color: #f1d927;
+  font-weight: 500;
+  font-size: 20px;
+  line-height: 115%;
+  letter-spacing: -1%;
+  margin-top: 24px;
+
+  cursor: pointer;
+  user-select: none;
+  align-self: flex-start;
+}
+
+/* бесконечный сдвиг: ровно на ширину первой половины */
+@keyframes reviews-left {
+  from {
+    transform: translateX(0);
+  }
+  to {
+    transform: translateX(-50%);
+  }
+}
+/* боковое затемнение (fade) */
+.reviews .reviews-container {
+  position: relative; /* нужно для ::before/::after */
+}
+
+.reviews .reviews-container::before,
+.reviews .reviews-container::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 120px; /* ширина затемнения */
+  z-index: 5;
+  pointer-events: none;
+}
+
+.reviews .reviews-container::before {
+  left: 0;
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+}
+
+.reviews .reviews-container::after {
+  right: 0;
+  background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }

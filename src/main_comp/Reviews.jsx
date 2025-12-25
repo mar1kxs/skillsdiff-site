@@ -6,30 +6,29 @@ import stars from "../assets/5stars.svg";
 const CLOSED_HEIGHT = 298;
 
 const Reviews = () => {
-  const [openId, setOpenId] = useState(null);
+  const [openKey, setOpenKey] = useState(null);
   const cardRefs = useRef({});
 
   const animateOpen = (el) => {
-    // стартуем из закрытого состояния
     el.style.maxHeight = `${CLOSED_HEIGHT}px`;
 
     requestAnimationFrame(() => {
       el.classList.add("open");
-      const full = el.scrollHeight;
-      el.style.maxHeight = `${full}px`;
+
+      // меряем после применения стилей open
+      requestAnimationFrame(() => {
+        el.style.maxHeight = `${el.scrollHeight}px`;
+      });
     });
   };
 
   const animateClose = (el) => {
-    // фиксируем текущую высоту (чтобы было от чего анимировать)
-    const current = el.scrollHeight;
-    el.style.maxHeight = `${current}px`;
+    el.style.maxHeight = `${el.scrollHeight}px`;
 
     requestAnimationFrame(() => {
       el.style.maxHeight = `${CLOSED_HEIGHT}px`;
     });
 
-    // класс open убираем ПОСЛЕ анимации, иначе текст схлопнется мгновенно
     const onEnd = (e) => {
       if (e.propertyName !== "max-height") return;
       el.classList.remove("open");
@@ -38,25 +37,60 @@ const Reviews = () => {
     el.addEventListener("transitionend", onEnd);
   };
 
-  const toggle = (id) => {
-    const currentOpen = openId;
-    const nextOpen = currentOpen === id ? null : id;
+  const toggle = (key) => {
+    const currentOpen = openKey;
+    const nextOpen = currentOpen === key ? null : key;
 
-    // закрываем текущую открытую (если есть и это не та же)
-    if (currentOpen && currentOpen !== id) {
+    // закрываем открытую
+    if (currentOpen && currentOpen !== key) {
       const prevEl = cardRefs.current[currentOpen];
       if (prevEl) animateClose(prevEl);
     }
 
     // открываем/закрываем кликнутую
-    const el = cardRefs.current[id];
+    const el = cardRefs.current[key];
     if (el) {
-      if (nextOpen === id) animateOpen(el);
+      if (nextOpen === key) animateOpen(el);
       else animateClose(el);
     }
 
-    setOpenId(nextOpen);
+    setOpenKey(nextOpen);
   };
+
+  const renderRow = (prefix, ariaHidden = false) => (
+    <ul className="reviews-row" aria-hidden={ariaHidden}>
+      {reviews.map((review, idx) => {
+        const key = `${prefix}-${review.id}-${idx}`; // уникальный ключ
+        const isOpen = openKey === key;
+
+        return (
+          <li
+            key={key}
+            className={`review-card ${isOpen ? "open" : ""}`}
+            ref={(node) => {
+              if (node) cardRefs.current[key] = node;
+            }}
+            onClick={() => toggle(key)}
+            style={{ maxHeight: `${CLOSED_HEIGHT}px` }}
+          >
+            <img src={stars} alt="stars icon" />
+            <h4>{review.user}</h4>
+            <p>{review.text}</p>
+
+            <span
+              className="more-reviews"
+              onClick={(e) => {
+                e.stopPropagation();
+                toggle(key);
+              }}
+            >
+              {isOpen ? "Свернуть ←" : "Читать далее →"}
+            </span>
+          </li>
+        );
+      })}
+    </ul>
+  );
 
   return (
     <section className="reviews">
@@ -64,34 +98,11 @@ const Reviews = () => {
         Отзывы наших <span style={{ color: "#F1D927" }}>учеников</span>
       </h2>
 
-      <div className="reviews-container">
-        <ul>
-          {reviews.map((review) => (
-            <li
-              key={review.id}
-              className="review-card"
-              ref={(node) => {
-                if (node) cardRefs.current[review.id] = node;
-              }}
-              onClick={() => toggle(review.id)}
-              style={{ maxHeight: `${CLOSED_HEIGHT}px` }}
-            >
-              <img src={stars} alt="stars icon" />
-              <h4>{review.user}</h4>
-              <p>{review.text}</p>
-
-              <span
-                className="more-reviews"
-                onClick={(e) => {
-                  e.stopPropagation();
-                  toggle(review.id);
-                }}
-              >
-                {openId === review.id ? "Свернуть ←" : "Читать далее →"}
-              </span>
-            </li>
-          ))}
-        </ul>
+      <div className="reviews-container reviews-auto">
+        <div className="reviews-track">
+          {renderRow("a")}
+          {renderRow("b", true)}
+        </div>
       </div>
     </section>
   );

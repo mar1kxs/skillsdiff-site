@@ -14,7 +14,7 @@
     pointer-events: none;
     z-index: -1;
   }
-  h3 {
+  .tag {
     padding: 10px 20px;
     background-color: var(--section-components-bg-color);
     display: inline-block;
@@ -22,6 +22,7 @@
     font-size: 20px;
     border-radius: 7px;
     border: 1px solid #ffffff1a;
+    position: relative;
   }
   h2 {
     color: var(--text-color2);
@@ -60,11 +61,15 @@
     }
     span {
       font-size: 24px;
+      letter-spacing: -2%;
+      line-height: 115%;
     }
     h4 {
       font-size: 24px;
       max-width: 230px;
       letter-spacing: -2%;
+      line-height: 115%;
+      font-weight: 700;
     }
     p {
       font-size: 16px;

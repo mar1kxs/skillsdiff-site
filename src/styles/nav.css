@@ -1,19 +1,22 @@
 nav {
   display: flex;
   justify-content: space-between;
-  color: var(--text-color2);
   align-items: center;
+  color: var(--text-color2);
 }
 
+/* left block */
 .nav-container {
   display: flex;
   align-items: center;
   gap: 50px;
-  img {
-    height: 25px;
-  }
 }
 
+.nav-container img {
+  height: 25px;
+}
+
+/* ===== nav-game (градиент на hover через псевдо-элемент) ===== */
 .nav-game {
   padding: 12px 18px;
   background-color: var(--nav-btns-color);
@@ -25,34 +28,84 @@ nav {
   justify-content: center;
   align-items: center;
   font-weight: 500;
-  img {
-    width: 22px;
-  }
-  img:last-child {
-    margin-left: 10px;
-  }
+
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  -webkit-tap-highlight-color: transparent;
 }
 
+.nav-game::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+
+  background: linear-gradient(
+    120deg,
+    rgba(255, 215, 0, 0.5) 0%,
+    rgba(255, 215, 0, 0.2) 20%,
+    rgba(255, 255, 255, 0.1) 40%,
+    rgba(255, 255, 255, 0.1) 100%
+  );
+
+  opacity: 0;
+  transition: opacity 200ms ease;
+  pointer-events: none;
+}
+
+.nav-game:hover::before {
+  opacity: 1;
+}
+
+.nav-game:hover img:first-child {
+  filter: brightness(0) invert(1);
+  transition: filter 180ms ease;
+}
+
+.nav-game > * {
+  position: relative;
+  z-index: 1;
+}
+
+.nav-game img {
+  width: 22px;
+}
+
+.nav-game img:last-child {
+  margin-left: 10px;
+}
+
+/* ===== links ===== */
 .nav-links {
   display: flex;
   align-items: center;
   gap: 30px;
   font-size: 15px;
   font-weight: 600;
-  li {
-    padding: 10px 15px;
-    background-color: var(--nav-btns-color);
-    font-size: 15px;
-    border-radius: 8px;
-    border: var(--section-components-border);
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 12px;
-    transition: 150ms;
-    &:hover {
-      cursor: pointer;
-      background-color: rgba(255, 255, 255, 0.4);
-    }
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.nav-links li {
+  padding: 10px 15px;
+  background-color: var(--nav-btns-color);
+  font-size: 15px;
+  border-radius: 8px;
+  border: var(--section-components-border);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 12px;
+  transition: background-color 150ms ease;
+}
+
+.nav-links li img {
+  width: 20px;
+}
+
+.nav-links li:hover {
+  cursor: pointer;
+  background-color: rgba(255, 255, 255, 0.4);
 }

@@ -7,7 +7,7 @@ const Steps = () => {
   return (
     <section className="steps">
       <img src={wave} alt="background wave" />
-      <h3>Как это работает?</h3>
+      <h3 className="tag tag--animated">Как это работает?</h3>
       <h2>
         Твой путь к <span style={{ color: "#F1D927" }}>скиллу</span>
       </h2>

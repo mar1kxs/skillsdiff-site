@@ -35,7 +35,7 @@ const Games = () => {
           </div>
         </li>
 
-        <li aria-disabled="true">
+        <li aria-disabled="true" style={{ cursor: "not-allowed" }}>
           <img src={cs2Card} alt="CS2 card background" />
           <div>
             Скоро
@@ -45,7 +45,7 @@ const Games = () => {
           </div>
         </li>
 
-        <li aria-disabled="true">
+        <li aria-disabled="true" style={{ cursor: "not-allowed" }}>
           <img src="" alt="" />
           <div>
             Секрет
