@@ -13,6 +13,7 @@
   display: flex;
   justify-content: space-between;
   padding-top: 50px;
+  gap: 30px;
   flex-wrap: wrap;
   align-items: center;
   li {
@@ -56,10 +57,11 @@
       letter-spacing: -2%;
       position: relative;
       margin-top: 40px;
+      max-width: fit-content;
       &::after {
         content: "";
-        width: 90px;
-        border-bottom: 2px solid #e8441e;
+        width: 100%;
+        border-bottom: 3px solid #e8441e;
         border-radius: 2px;
         position: absolute;
         top: 18px;

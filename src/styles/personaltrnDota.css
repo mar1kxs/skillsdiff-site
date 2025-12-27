@@ -26,6 +26,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
+  gap: 30px;
 }
 
 .personal-card-dota {
@@ -63,15 +64,17 @@
     font-size: 32px;
     letter-spacing: -2%;
     position: relative;
+    width: max-content;
+    height: max-content;
     &::after {
       content: "";
-      width: 90px;
-      border-bottom: 2px solid #e8441e;
+      width: 100%;
+      border-bottom: 3px solid #e8441e;
       border-radius: 2px;
       position: absolute;
       top: 18px;
       left: 0;
-      transform: rotate(-15deg);
+      transform: rotate(-13deg);
     }
   }
   .span-last {

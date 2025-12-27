@@ -14,7 +14,12 @@ const Nav = () => {
     <nav>
       <div className="nav-container">
         <Link to="/">
-          <img src={logo} alt="Skillsdiff Logo" style={{ cursor: "pointer" }} />
+          <img
+            src={logo}
+            alt="Skillsdiff Logo"
+            style={{ cursor: "pointer" }}
+            className="logo-nav"
+          />
         </Link>
 
         <div className="nav-game">

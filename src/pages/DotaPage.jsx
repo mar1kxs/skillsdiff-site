@@ -5,6 +5,7 @@ import WithFriendsTrn from "../dota_comp/WithFriendsTrn";
 import Faq from "../main_comp/Faq.jsx";
 import OtherDota from "../dota_comp/OtherDota.jsx";
 import Reviews from "../main_comp/Reviews.jsx";
+import Coaches from "../main_comp/Coaches.jsx";
 
 const DotaPage = () => {
   return (
@@ -13,6 +14,7 @@ const DotaPage = () => {
       <PersonalTrn />
       <WithFriendsTrn />
       <OtherDota />
+      <Coaches />
       <Reviews className="dota-reviews" />
       <Faq />
     </>

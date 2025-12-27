@@ -1,0 +1,301 @@
+/* DOTA PAGE PHONE */
+@media (max-width: 391px) {
+  .nav-links {
+    display: none !important;
+  }
+  .nav-game {
+    display: none !important;
+    visibility: hidden !important;
+  }
+  nav {
+    padding: 0 20px;
+  }
+  .logo-nav {
+    width: 150px;
+  }
+  .dota-hdr-ul {
+    max-width: 310px;
+  }
+  .dota-hdr-ul li:nth-child(2) {
+    order: 1;
+  }
+  .dota-hdr-ul li:first-child {
+    order: 2;
+  }
+  .dota-hdr-ul li:nth-child(3) {
+    order: 4;
+  }
+  .dota-hdr-ul :last-child {
+    order: 3;
+  }
+  .dota-hdr h2 {
+    font-size: 46px;
+  }
+  .dota-hdr {
+    padding-top: 125px;
+    padding-bottom: 180px;
+  }
+  .dota-hdr button {
+    font-size: 16px;
+  }
+  .rning-line {
+    position: absolute;
+    top: 650px;
+    rotate: -3deg;
+  }
+  .dota-features {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .app-container {
+    padding-top: 0;
+  }
+  .personal-trainings h3 {
+    font-size: 36px;
+  }
+  .personal-trainings {
+    padding: 0 20px;
+  }
+  .personal-card-dota-heading {
+    padding: 20px;
+    h4 {
+      font-size: 24px;
+      order: 1;
+    }
+    .p-first {
+      font-size: 16px;
+      order: 2;
+    }
+    .p-last {
+      font-size: 16px;
+      order: 5;
+      align-self: flex-end;
+      margin-top: -48px;
+    }
+    .span-first {
+      font-size: 20px;
+      order: 3;
+    }
+    .span-last {
+      font-size: 40px;
+      order: 4;
+    }
+    button {
+      font-size: 16px;
+      order: 6;
+    }
+  }
+  .personal-trn-bg {
+    visibility: hidden !important;
+    display: none !important;
+    opacity: 0 !important;
+  }
+  .span-first::after {
+    top: 12px !important;
+  }
+  .personal-card-dota-footer {
+    padding: 20px;
+  }
+  .personal-card-dota-footer ul li {
+    font-size: 16px;
+  }
+  .personal-card-dota-footer ul {
+    gap: 30px;
+  }
+  .personal-trainings {
+    padding-bottom: 40px;
+  }
+  .frnds-trn {
+    padding: 30px 20px;
+  }
+  .frnds-trn h3 {
+    font-size: 36px;
+  }
+  .frnds-bg {
+    display: none !important;
+    visibility: hidden !important;
+    opacity: 0 !important;
+  }
+  .frnds-card-header {
+    padding: 20px;
+    h4 {
+      font-size: 24px;
+      order: 1;
+    }
+
+    p {
+      font-size: 16px;
+      order: 5;
+      align-self: flex-end;
+      margin-top: -48px;
+    }
+    .span-first {
+      font-size: 20px;
+      order: 3;
+    }
+    .span-last {
+      font-size: 40px;
+      order: 4;
+    }
+    button {
+      font-size: 16px;
+      order: 6;
+      margin-top: 16px;
+    }
+  }
+  .frnds-card-footer {
+    padding: 32px 20px 38px;
+  }
+  .frnds-card-footer ul li {
+    font-size: 16px;
+  }
+  .frnds-list {
+    padding-top: 40px;
+  }
+  .other-dota {
+    padding: 50px 20px;
+  }
+  .other-dota h3 {
+    font-size: 36px;
+  }
+  .other-header {
+    padding: 30px 20px;
+    width: 350px;
+  }
+  .info-container {
+    h4 {
+      font-size: 24px !important;
+      order: 1;
+    }
+
+    p {
+      font-size: 16px !important;
+      order: 2;
+      font-weight: 400 !important;
+      max-width: 244px;
+    }
+    .span-first {
+      font-size: 20px !important;
+      order: 3;
+      &::after {
+        top: 9px !important;
+      }
+    }
+    .span-last {
+      font-size: 40px !important;
+      order: 4;
+    }
+    button {
+      font-size: 16px !important;
+      order: 6;
+      margin-top: 16px !important;
+      padding-top: 14px !important;
+      padding-bottom: 14px !important;
+    }
+  }
+  .other-header img {
+    width: 150px;
+    bottom: 75px;
+    right: 20px;
+  }
+
+  .other-footer {
+    font-size: 16px;
+    padding: 30px 20px;
+  }
+  .other-footer ul {
+    gap: 30px;
+  }
+  .coaches {
+    padding: 30px 20px;
+  }
+  .tag {
+    visibility: hidden !important;
+    display: none !important;
+    opacity: 0 !important;
+  }
+  .coaches h2 {
+    font-size: 36px;
+  }
+  .coach-info {
+    padding: 20px 20px 38px;
+  }
+  .coach-list {
+    font-size: 11px !important;
+    flex-wrap: wrap;
+  }
+  .coach-info p {
+    font-size: 14px;
+    text-wrap-mode: wrap;
+  }
+  .coach-card {
+    width: 275px;
+  }
+  .coach-card h4 {
+    font-size: 16px;
+  }
+  .coach-card img {
+    width: 275px;
+    object-fit: cover;
+    height: 245px;
+  }
+  .faq {
+    padding: 30px 20px;
+  }
+  .faq h2 {
+    font-size: 36px;
+    max-width: 100px;
+  }
+  .faq-container {
+    flex-direction: column-reverse;
+  }
+  .faq-question {
+    font-size: 18px;
+  }
+  .faq-question span {
+    font-size: 28px;
+  }
+  .faq-answer {
+    font-size: 16px;
+  }
+  .faq-card {
+    padding: 30px 20px;
+    h3 {
+      font-size: 20px;
+    }
+    p {
+      font-size: 16px;
+    }
+    svg {
+      width: 52px;
+      height: 52px;
+    }
+    img {
+      width: 226px;
+    }
+  }
+  footer {
+    padding: 50px 20px;
+  }
+  .footer {
+    padding: 30px 20px;
+    img {
+      width: 100%;
+    }
+  }
+  .footer-list {
+    flex-direction: column;
+    gap: 50px;
+    padding-top: 0px;
+  }
+  .footer-list h4 {
+    font-size: 20px;
+  }
+  .inside-list {
+    font-size: 15px;
+  }
+  .footer p {
+    font-size: 13px;
+  }
+}

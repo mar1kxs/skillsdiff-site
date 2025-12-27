@@ -17,7 +17,7 @@ const OtherDota = () => {
                 <span style={{ color: "#FF6C32" }}>Анализ игры</span> в Dota 2
               </h4>
               <p>Глубокий разбор твоей игры с тренером</p>
-              <span className="span-first">799 ₽</span>
+              <span className="span-first">2000 ₽</span>
               <span className="span-last">1599 ₽</span>
               <button className="other-btn">Оплатить</button>
             </div>
@@ -45,8 +45,8 @@ const OtherDota = () => {
               <h4>
                 <span style={{ color: "#FF6C32" }}>Party-игры</span> с тренером
               </h4>
-              <p>Глубокий разбор твоей игры с тренером</p>
-              <span className="span-first">799 ₽</span>
+              <p>Получайте анализ в реальном времени</p>
+              <span className="span-first">4000 ₽</span>
               <span className="span-last">3199 ₽ </span>
               <button className="other-btn">Оплатить</button>
             </div>
@@ -54,14 +54,11 @@ const OtherDota = () => {
           </div>
           <div className="other-footer">
             <ul>
+              <li className="checked">5 игр в команде с тренером</li>
               <li className="checked">
-                Разбор ранней, средней и поздней стадии игры
+                Разбор ошибок и советы прямо <br />в процессе матча
               </li>
-              <li className="checked">
-                Анализ ошибок: позиционирование, фарм, коллы, макро <br /> и
-                микро моменты
-              </li>
-              <li className="checked">Индивидуальный план для прокачки</li>
+              <li className="checked">Анализ общей командной стратегии</li>
             </ul>
           </div>
         </li>

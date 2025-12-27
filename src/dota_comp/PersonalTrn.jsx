@@ -18,8 +18,8 @@ const PersonalTrn = () => {
               познакомиться с программой 
             </p>
             <p className="p-last">1 тренировка</p>
-            <span className="span-first">799 ₽</span>
-            <span className="span-last">799 ₽</span>
+            <span className="span-first">900 ₽</span>
+            <span className="span-last">800 ₽</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -39,8 +39,8 @@ const PersonalTrn = () => {
               Пакет “Start” научит тебя <br /> базовым навыкам игры
             </p>
             <p className="p-last">4 тренировки</p>
-            <span className="span-first">799 ₽</span>
-            <span className="span-last">2999 ₽</span>
+            <span className="span-first">3600 ₽</span>
+            <span className="span-last">3 100 ₽</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -59,9 +59,9 @@ const PersonalTrn = () => {
             <p className="p-first">
               Самая популярная программа <br /> по цене и качествам
             </p>
-            <p className="p-last">8 тренировка</p>
-            <span className="span-first">799 ₽</span>
-            <span className="span-last">4999 ₽</span>
+            <p className="p-last">8 тренировок</p>
+            <span className="span-first">7200 ₽</span>
+            <span className="span-last">5 800 ₽</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -80,9 +80,9 @@ const PersonalTrn = () => {
             <p className="p-first">
               Самая популярная программа <br /> по цене и качествам
             </p>
-            <p className="p-last">16 тренировка</p>
-            <span className="span-first">799 ₽</span>
-            <span className="span-last">9499 ₽</span>
+            <p className="p-last">16 тренировок</p>
+            <span className="span-first">14400 ₽</span>
+            <span className="span-last">10 800 ₽</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">

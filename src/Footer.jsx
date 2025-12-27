@@ -99,7 +99,9 @@ const Footer = () => {
           </li>
         </ul>
 
-        <p>© 2025 SkillsDiff. Все права защищены.</p>
+        <p style={{ color: "#B9B9B9" }}>
+          © 2025 SkillsDiff. Все права защищены.
+        </p>
       </div>
     </footer>
   );

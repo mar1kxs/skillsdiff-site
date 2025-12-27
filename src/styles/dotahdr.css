@@ -10,8 +10,13 @@
 .dota-hdr .dota-bg {
   position: absolute;
   width: 100vw;
+  height: 550px;
   inset: 0;
   z-index: -999;
+  object-fit: cover;
+  object-position: center;
+  pointer-events: none;
+  user-select: none;
 }
 
 .dota-main-div {
@@ -45,16 +50,21 @@
   flex-wrap: wrap;
   max-width: 500px;
   justify-content: center;
-  li {
-    background-color: #060606;
-    border: 1px solid #ff6c32;
-    border-radius: 6px;
-    color: var(--text-color2);
-    font-weight: 600;
-    line-height: 105%;
-    letter-spacing: -2%;
-    padding: 10px 12px;
-  }
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+
+.dota-hdr-ul li {
+  background-color: #060606;
+  border: 1px solid #ff6c32;
+  border-radius: 6px;
+  color: var(--text-color2);
+  font-weight: 600;
+  line-height: 105%;
+  letter-spacing: -2%;
+  padding: 10px 12px;
+  font-size: 14px;
 }
 
 .dota-features {

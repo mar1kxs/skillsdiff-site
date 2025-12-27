@@ -5,6 +5,7 @@ import "./App.css";
 import RningLine from "./RningLine";
 import Footer from "./Footer";
 import DotaPage from "./pages/DotaPage";
+import "./styles/media.css";
 
 function App() {
   return (

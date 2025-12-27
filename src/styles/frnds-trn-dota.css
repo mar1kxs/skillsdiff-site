@@ -30,6 +30,7 @@
   padding-top: 50px;
   flex-wrap: wrap;
   align-items: center;
+  gap: 30px;
 }
 
 .frnds-card {
@@ -63,10 +64,11 @@
     font-size: 32px;
     letter-spacing: -2%;
     position: relative;
+    max-width: fit-content;
     &::after {
       content: "";
-      width: 90px;
-      border-bottom: 2px solid #e8441e;
+      width: 100%;
+      border-bottom: 3px solid #e8441e;
       border-radius: 2px;
       position: absolute;
       top: 18px;
