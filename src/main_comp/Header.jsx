@@ -11,7 +11,8 @@ const Header = () => {
   return (
     <header className="main-hdr">
       <img src={bg} alt="Skillsdiff Background" className="background-image" />
-
+      <span className="yellow-el"></span>
+      <span className="purple-el"></span>
       <h1>
         Персональные{" "}
         <span

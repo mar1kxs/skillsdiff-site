@@ -94,6 +94,8 @@ const Reviews = () => {
 
   return (
     <section className="reviews">
+      <span className="purple1-review"></span>
+      <span className="purple2-review"></span>
       <h2>
         Отзывы наших <span style={{ color: "#F1D927" }}>учеников</span>
       </h2>

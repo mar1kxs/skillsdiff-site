@@ -12,11 +12,17 @@ nav {
   gap: 50px;
 }
 
-.nav-container img {
+.logo-nav {
   height: 25px;
+  display: block;
 }
 
-/* ===== nav-game (градиент на hover через псевдо-элемент) ===== */
+/* wrapper for dropdown */
+.nav-game-container {
+  position: relative;
+}
+
+/* ===== nav-game button ===== */
 .nav-game {
   padding: 12px 18px;
   background-color: var(--nav-btns-color);
@@ -29,10 +35,16 @@ nav {
   align-items: center;
   font-weight: 500;
 
+  color: var(--text-color2);
+
   position: relative;
   overflow: hidden;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
+
+  outline: none;
+  box-shadow: none;
+  appearance: none;
 }
 
 .nav-game::before {
@@ -58,9 +70,9 @@ nav {
   opacity: 1;
 }
 
-.nav-game:hover img:first-child {
-  filter: brightness(0) invert(1);
-  transition: filter 180ms ease;
+/* если открыто — можно чуть подсветить */
+.nav-game.active::before {
+  opacity: 1;
 }
 
 .nav-game > * {
@@ -70,13 +82,92 @@ nav {
 
 .nav-game img {
   width: 22px;
+  height: 22px;
+  display: block;
 }
 
 .nav-game img:last-child {
   margin-left: 10px;
 }
 
-/* ===== links ===== */
+/* поворот стрелки */
+.nav-game .rotated {
+  transform: rotate(180deg);
+  transition: transform 200ms ease;
+}
+
+/* ===== dropdown list ===== */
+.btn-list {
+  position: absolute;
+  z-index: 9;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) translateY(-10px);
+
+  padding: 20px;
+  border-radius: 17px;
+  border: 1px solid #9a9a9a;
+  background: rgba(14, 14, 14, 0.8);
+
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease, transform 200ms ease;
+}
+
+/* open state */
+.btn-list.open {
+  opacity: 1;
+  pointer-events: auto;
+  transform: translateX(-50%) translateY(0);
+}
+
+.btn-list li {
+  transition: filter 150ms ease, transform 150ms ease;
+  position: relative;
+  cursor: pointer;
+  list-style: none;
+}
+
+.btn-list li:hover {
+  filter: brightness(1.2);
+}
+
+.btn-list li img {
+  width: 200px;
+  height: 170px;
+  margin: 0;
+  display: block;
+  border-radius: 12px;
+}
+
+/* titles overlay */
+.btn-list li::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  height: 20px;
+  pointer-events: none;
+}
+
+.btn-list li:first-child::after {
+  content: url("../assets/navValorantTitle.svg");
+}
+
+.btn-list li:nth-child(2)::after {
+  content: url("../assets/navDotaTitle.svg");
+}
+
+.btn-list li:last-child::after {
+  content: url("../assets/navCsTitle.svg");
+}
+
+/* ===== right links ===== */
 .nav-links {
   display: flex;
   align-items: center;
@@ -103,9 +194,16 @@ nav {
 
 .nav-links li img {
   width: 20px;
+  height: 20px;
+  display: block;
 }
 
 .nav-links li:hover {
   cursor: pointer;
   background-color: rgba(255, 255, 255, 0.4);
+}
+
+/* убираем старый класс hidden (теперь не нужен) */
+.hidden {
+  display: none;
 }

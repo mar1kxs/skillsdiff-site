@@ -1,10 +1,14 @@
-.personal-trn-bg {
+.personal-trainings::after {
+  content: "";
+  background-image: url("../assets/personal.svg");
+  background-repeat: repeat-x;
+  background-size: contain;
   position: absolute;
   inset: 0;
-  z-index: -999;
-  left: calc(100% - 92vw);
-  width: 100vw;
+  left: -90vw;
+  width: 200vw;
   height: 995px;
+  z-index: -999;
 }
 
 .personal-trainings {
@@ -26,7 +30,7 @@
   justify-content: space-between;
   flex-wrap: wrap;
   align-items: center;
-  gap: 30px;
+  gap: 20px;
 }
 
 .personal-card-dota {

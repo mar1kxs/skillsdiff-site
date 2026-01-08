@@ -65,3 +65,41 @@
     }
   }
 }
+
+.yellow-el {
+  position: absolute;
+  width: 360px;
+  height: 360px;
+  border-radius: 50%;
+  top: -150px;
+  right: -300px;
+  background: radial-gradient(
+    circle,
+    rgba(255, 215, 0, 0.55) 0%,
+    rgba(255, 215, 0, 0.35) 25%,
+    rgba(255, 215, 0, 0.18) 45%,
+    rgba(255, 215, 0, 0.08) 60%,
+    rgba(255, 215, 0, 0.03) 70%,
+    rgba(255, 215, 0, 0) 100%
+  );
+
+  filter: blur(40px);
+  pointer-events: none;
+  z-index: -1;
+}
+.purple-el {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+
+  left: -120px;
+  top: 403px;
+
+  border-radius: 50%;
+
+  background: rgba(123, 108, 231, 0.6);
+
+  filter: blur(180px);
+  pointer-events: none;
+  z-index: -1;
+}

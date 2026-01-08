@@ -3,6 +3,7 @@
   flex-direction: column;
   padding: 112px 0;
   gap: 50px;
+  position: relative;
 }
 
 .reviews h2 {
@@ -160,4 +161,33 @@
 .reviews .reviews-container::after {
   right: 0;
   background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
+}
+
+.purple1-review {
+  position: absolute;
+  width: 230px;
+  height: 230px;
+  top: 150px;
+  border-radius: 50%;
+
+  background: rgba(123, 108, 231, 0.6);
+
+  filter: blur(180px);
+  pointer-events: none;
+  z-index: -1;
+}
+
+.purple2-review {
+  position: absolute;
+  width: 460px;
+  height: 460px;
+  top: 200px;
+  right: 0;
+  border-radius: 50%;
+
+  background: rgba(123, 108, 231, 0.6);
+
+  filter: blur(180px);
+  pointer-events: none;
+  z-index: -1;
 }

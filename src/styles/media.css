@@ -299,3 +299,9 @@
     font-size: 13px;
   }
 }
+
+@media (max-width: 1024px) {
+  .frnds-trn::after {
+    display: none;
+  }
+}

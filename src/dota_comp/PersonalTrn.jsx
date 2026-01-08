@@ -5,7 +5,6 @@ import "../styles/personaltrnDota.css";
 const PersonalTrn = () => {
   return (
     <section className="personal-trainings">
-      <img src={bg} alt="Personal background" className="personal-trn-bg" />
       <h3>
         <span style={{ color: "#FF6C32" }}>Индивидуальный</span> коучинг
       </h3>
