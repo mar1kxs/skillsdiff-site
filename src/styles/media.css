@@ -319,4 +319,14 @@
   .app-container {
     padding: 40px 100px 0;
   }
+  .dota-features ul {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+  .frnds-list {
+    justify-content: center;
+  }
+  .trainings-list {
+    justify-content: center;
+  }
 }
