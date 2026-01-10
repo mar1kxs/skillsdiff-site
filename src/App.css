@@ -12,6 +12,11 @@
   --text-color3: #ebebeb;
 
   --game-panel-bg-color: #404040;
+
+  /* только переменные, ничего не ломаем */
+  --container: 1600px;
+  --gutter: 24px;
+  --gutter-lg: 40px;
 }
 
 * {
@@ -24,6 +29,7 @@
 body {
   background-color: var(--background-color);
   overflow-x: hidden;
+  width: 100vw;
   position: relative;
 }
 
@@ -32,6 +38,7 @@ input,
 textarea {
   border: none;
   outline: none;
+  font: inherit;
 }
 
 li {
@@ -43,8 +50,24 @@ a {
   color: inherit;
 }
 
+/* ОСТАВЛЯЕМ КАК БЫЛО (чтобы ничего не сломалось) */
 .app-container {
   max-width: 1600px;
   margin: 0 auto;
   padding-top: 40px;
+}
+
+/* ✅ НОВЫЙ: безопасный враппер с боковыми отступами */
+.container-pad {
+  max-width: var(--container);
+  margin: 0 auto;
+  padding-left: var(--gutter);
+  padding-right: var(--gutter);
+}
+
+@media (min-width: 1440px) {
+  .container-pad {
+    padding-left: var(--gutter-lg);
+    padding-right: var(--gutter-lg);
+  }
 }

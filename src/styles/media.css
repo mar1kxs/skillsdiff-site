@@ -305,3 +305,18 @@
     display: none;
   }
 }
+
+@media (max-width: 1600px) {
+  .games-list {
+    justify-content: center;
+  }
+  .main-features {
+    justify-content: center;
+  }
+  .steps-list {
+    justify-content: center;
+  }
+  .app-container {
+    padding: 40px 100px 0;
+  }
+}
