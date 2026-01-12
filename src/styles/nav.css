@@ -3,17 +3,18 @@ nav {
   justify-content: space-between;
   align-items: center;
   color: var(--text-color2);
+  position: relative;
 }
 
 /* left block */
 .nav-container {
   display: flex;
   align-items: center;
-  gap: 50px;
+  gap: 3.125rem;
 }
 
 .logo-nav {
-  height: 25px;
+  height: 1.5625rem;
   display: block;
 }
 
@@ -24,27 +25,25 @@ nav {
 
 /* ===== nav-game button ===== */
 .nav-game {
-  padding: 12px 18px;
+  padding: 0.75rem 1.125rem;
   background-color: var(--nav-btns-color);
-  font-size: 15px;
-  border-radius: 8px;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
   border: var(--section-components-border);
   display: flex;
-  gap: 12px;
+  gap: 0.75rem;
   justify-content: center;
   align-items: center;
   font-weight: 500;
-
   color: var(--text-color2);
-
   position: relative;
   overflow: hidden;
   cursor: pointer;
   -webkit-tap-highlight-color: transparent;
-
   outline: none;
   box-shadow: none;
   appearance: none;
+  text-wrap-mode: nowrap;
 }
 
 .nav-game::before {
@@ -52,7 +51,6 @@ nav {
   position: absolute;
   inset: 0;
   border-radius: inherit;
-
   background: linear-gradient(
     120deg,
     rgba(255, 215, 0, 0.5) 0%,
@@ -60,17 +58,12 @@ nav {
     rgba(255, 255, 255, 0.1) 40%,
     rgba(255, 255, 255, 0.1) 100%
   );
-
   opacity: 0;
   transition: opacity 200ms ease;
   pointer-events: none;
 }
 
-.nav-game:hover::before {
-  opacity: 1;
-}
-
-/* если открыто — можно чуть подсветить */
+.nav-game:hover::before,
 .nav-game.active::before {
   opacity: 1;
 }
@@ -81,16 +74,15 @@ nav {
 }
 
 .nav-game img {
-  width: 22px;
-  height: 22px;
+  width: 1.375rem;
+  height: 1.375rem;
   display: block;
 }
 
 .nav-game img:last-child {
-  margin-left: 10px;
+  margin-left: 0.625rem;
 }
 
-/* поворот стрелки */
 .nav-game .rotated {
   transform: rotate(180deg);
   transition: transform 200ms ease;
@@ -100,25 +92,21 @@ nav {
 .btn-list {
   position: absolute;
   z-index: 9;
-  top: calc(100% + 12px);
+  top: calc(100% + 0.75rem);
   left: 50%;
-  transform: translateX(-50%) translateY(-10px);
-
-  padding: 20px;
-  border-radius: 17px;
+  transform: translateX(-50%) translateY(-0.625rem);
+  padding: 1.25rem;
+  border-radius: 1.0625rem;
   border: 1px solid #9a9a9a;
   background: rgba(14, 14, 14, 0.8);
-
   display: flex;
   flex-direction: column;
-  gap: 12px;
-
+  gap: 0.75rem;
   opacity: 0;
   pointer-events: none;
   transition: opacity 200ms ease, transform 200ms ease;
 }
 
-/* open state */
 .btn-list.open {
   opacity: 1;
   pointer-events: auto;
@@ -137,21 +125,20 @@ nav {
 }
 
 .btn-list li img {
-  width: 200px;
-  height: 170px;
+  width: 12.5rem;
+  height: 10.625rem;
   margin: 0;
   display: block;
-  border-radius: 12px;
+  border-radius: 0.75rem;
 }
 
-/* titles overlay */
 .btn-list li::after {
   content: "";
   position: absolute;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  height: 20px;
+  height: 1.25rem;
   pointer-events: none;
 }
 
@@ -171,8 +158,8 @@ nav {
 .nav-links {
   display: flex;
   align-items: center;
-  gap: 30px;
-  font-size: 15px;
+  gap: 1.875rem;
+  font-size: 0.9375rem;
   font-weight: 600;
   margin: 0;
   padding: 0;
@@ -180,21 +167,21 @@ nav {
 }
 
 .nav-links li {
-  padding: 10px 15px;
+  padding: 0.625rem 0.9375rem;
   background-color: var(--nav-btns-color);
-  font-size: 15px;
-  border-radius: 8px;
+  font-size: 0.9375rem;
+  border-radius: 0.5rem;
   border: var(--section-components-border);
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 12px;
+  gap: 0.75rem;
   transition: background-color 150ms ease;
 }
 
 .nav-links li img {
-  width: 20px;
-  height: 20px;
+  width: 1.25rem;
+  height: 1.25rem;
   display: block;
 }
 
@@ -203,7 +190,193 @@ nav {
   background-color: rgba(255, 255, 255, 0.4);
 }
 
-/* убираем старый класс hidden (теперь не нужен) */
+/* ===== burger ===== */
+.nav-burger {
+  display: none;
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  border: var(--section-components-border);
+  background: var(--nav-btns-color);
+  color: var(--text-color2);
+  cursor: pointer;
+  align-items: center;
+  justify-content: center;
+  -webkit-tap-highlight-color: transparent;
+  padding: 0;
+}
+
+.nav-burger span {
+  width: 1.375rem;
+  height: 0.125rem;
+  background: currentColor;
+  border-radius: 99px;
+  display: block;
+  position: relative;
+  transition: transform 180ms ease, opacity 180ms ease, top 180ms ease;
+}
+
+.nav-burger span::before,
+.nav-burger span::after {
+  content: "";
+  width: 1.375rem;
+  height: 0.125rem;
+  background: currentColor;
+  border-radius: 99px;
+  position: absolute;
+  left: 0;
+  transition: transform 180ms ease, top 180ms ease;
+}
+
+.nav-burger span::before {
+  top: -0.4rem;
+}
+
+.nav-burger span::after {
+  top: 0.4rem;
+}
+
+.nav-burger.is-open span {
+  opacity: 0;
+}
+
+.nav-burger.is-open span::before {
+  top: 0;
+  transform: rotate(45deg);
+}
+
+.nav-burger.is-open span::after {
+  top: 0;
+  transform: rotate(-45deg);
+}
+
+/* ===== mobile menu ===== */
+.nav-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.55);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 200ms ease;
+  z-index: 98;
+}
+
+.nav-overlay.open {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.nav-mobile {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100dvh;
+  width: min(22.5rem, 92vw);
+  background: rgba(14, 14, 14, 0.96);
+  border-left: 1px solid rgba(255, 255, 255, 0.12);
+  transform: translateX(105%);
+  transition: transform 220ms ease;
+  z-index: 99;
+  padding: 1.25rem;
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+}
+
+.nav-mobile.open {
+  transform: translateX(0);
+}
+
+.nav-mobile-top {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.nav-close {
+  width: 2.75rem;
+  height: 2.75rem;
+  border-radius: 0.75rem;
+  border: var(--section-components-border);
+  background: var(--nav-btns-color);
+  color: var(--text-color2);
+  cursor: pointer;
+}
+
+.nav-mobile-links {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.nav-mobile-links li {
+  padding: 0.875rem 1rem;
+  background-color: var(--nav-btns-color);
+  border-radius: 0.75rem;
+  border: var(--section-components-border);
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+  font-weight: 600;
+}
+
+.nav-mobile-links li img {
+  width: 1.25rem;
+  height: 1.25rem;
+  display: block;
+}
+
+.nav-mobile-links a {
+  color: var(--text-color2);
+  text-decoration: none;
+}
+
+.nav-mobile-game {
+  margin-top: 0.25rem;
+}
+
+.nav-mobile-game .btn-list {
+  position: static;
+  transform: none;
+  opacity: 1;
+  pointer-events: auto;
+  background: rgba(255, 255, 255, 0.04);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  padding: 0.75rem;
+  border-radius: 1rem;
+}
+
+.nav-mobile-game .btn-list li img {
+  width: 100%;
+  height: 8.75rem;
+}
+
+.nav-mobile-game .btn-list li::after {
+  transform: translate(-50%, -50%) scale(0.9);
+}
+
 .hidden {
   display: none;
+}
+
+@media (max-width: 48rem) {
+  .nav-links {
+    display: none;
+  }
+
+  .nav-container {
+    gap: 1rem;
+  }
+
+  .nav-game-container {
+    display: none;
+  }
+
+  .nav-burger {
+    display: inline-flex;
+  }
 }

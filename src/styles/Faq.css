@@ -1,14 +1,17 @@
 .faq {
-  padding: 60px 0;
+  padding: 3.75rem 0; /* 60px */
+
   h2 {
-    font-size: 48px;
-    letter-spacing: -3%;
-    line-height: 115%;
+    font-size: 3rem; /* 48px */
+    letter-spacing: -0.03em;
+    line-height: 1.15;
     color: var(--text-color2);
   }
+
   background-color: rgba(33, 33, 33, 1);
   position: relative;
   width: 100%;
+
   &::before {
     content: "";
     position: absolute;
@@ -25,23 +28,23 @@
 }
 
 .faq-container {
-  padding-top: 80px;
+  padding-top: 5rem; /* 80px */
   display: flex;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
 }
 
 .faq-card {
-  /* width: 450px; */
   height: fit-content;
-  padding: 40px;
+  padding: 2.5rem; /* 40px */
   color: var(--text-color2);
   display: flex;
   flex-direction: column;
   align-items: start;
   background-color: rgba(33, 33, 33, 1);
-  gap: 30px;
-  border-radius: 20px;
+  gap: 1.875rem; /* 30px */
+  border-radius: 1.25rem; /* 20px */
   border: 1px solid rgba(241, 217, 39, 0.3);
+
   background: linear-gradient(
       -140deg,
       rgba(91, 89, 241, 0.2) 1%,
@@ -52,12 +55,15 @@
       rgba(91, 89, 241, 0.2) 1%,
       rgba(255, 255, 255, 0.05) 50%
     );
+
   h3 {
     text-align: start;
   }
+
   p {
-    max-width: 370px;
+    max-width: 23.125rem; /* 370px */
   }
+
   img:first-child {
     margin: 0 auto;
   }
@@ -67,35 +73,41 @@
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  color: #ffffff; /* цвет иконки */
+  color: #ffffff;
   transition: color 0.2s ease;
 }
 
 .tg-btn:hover {
-  color: #24a1de; /* цвет иконки при hover */
+  color: #24a1de;
 }
 
-/* по желанию, чтобы размер контролировать через CSS */
 .tg-icon {
-  width: 64px;
-  height: 64px;
+  width: 4rem; /* 64px */
+  height: 4rem;
   display: block;
 }
 
 .faq-zone {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
   color: var(--text-color2);
   flex: 1;
 }
 
+/* ====== FIX: плавное открытие/закрытие без "ступеньки" ====== */
+
 .faq-item {
   position: relative;
-  border-radius: 20px;
+  border-radius: 1.25rem; /* 20px */
   border: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
   background: transparent;
+
+  /* делаем элемент grid, чтобы ответ раскрывался через 0fr/1fr */
+  display: grid;
+  grid-template-rows: auto 0fr; /* question + answer */
+  transition: grid-template-rows 0.35s ease;
 }
 
 /* ГРАДИЕНТНЫЙ СЛОЙ */
@@ -117,12 +129,7 @@
   z-index: 0;
 }
 
-/* hover */
-.faq-item:hover::before {
-  opacity: 1;
-}
-
-/* открытое состояние */
+.faq-item:hover::before,
 .faq-item.open::before {
   opacity: 1;
 }
@@ -139,8 +146,8 @@
   outline: none;
   background: transparent;
   color: var(--text-color2);
-  font-size: 24px;
-  padding: 32px;
+  font-size: 1.5rem; /* 24px */
+  padding: 2rem; /* 32px */
   width: 100%;
   text-align: left;
   border: none;
@@ -150,25 +157,39 @@
   cursor: pointer;
 }
 
-/* ОТВЕТ */
+/* ОТВЕТ: теперь это "контейнер строки грида" */
 .faq-answer {
-  font-size: 18px;
-  line-height: 135%;
+  font-size: 1.125rem; /* 18px */
+  line-height: 1.35;
   color: var(--text-color2);
-  max-width: 750px;
+  max-width: 46.875rem; /* 750px */
 
-  max-height: 0;
+  /* важно для 0fr/1fr */
   overflow: hidden;
-  opacity: 0;
-  transform: translateY(-16px);
+  min-height: 0;
 
-  padding: 0 30px;
-  transition: max-height 0.35s ease, opacity 0.25s ease, transform 0.25s ease;
+  /* визуальная анимация */
+  opacity: 0;
+  transform: translateY(-0.75rem); /* 12px */
+  padding: 0 1.875rem; /* 30px */
+  transition: opacity 0.2s ease, transform 0.2s ease, padding 0.2s ease;
+}
+
+/* Открыто */
+.faq-item.open {
+  grid-template-rows: auto 1fr;
 }
 
 .faq-item.open .faq-answer {
-  max-height: 300px;
   opacity: 1;
   transform: translateY(0);
-  padding: 0 30px 30px;
+  padding: 0 1.875rem 1.875rem;
+}
+
+/* если хочешь ещё мягче закрытие текста */
+@media (prefers-reduced-motion: reduce) {
+  .faq-item,
+  .faq-answer {
+    transition: none;
+  }
 }

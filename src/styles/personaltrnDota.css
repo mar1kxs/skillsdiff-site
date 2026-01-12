@@ -1,102 +1,142 @@
-.personal-trainings::after {
-  content: "";
-  background-image: url("../assets/personal.svg");
-  background-repeat: repeat-x;
-  background-size: contain;
-  position: absolute;
-  inset: 0;
-  left: -90vw;
-  width: 200vw;
-  height: 995px;
-  z-index: -999;
-}
-
 .personal-trainings {
   position: relative;
-  padding-top: 60px;
-  padding-bottom: 109px;
+  padding-top: clamp(2.5rem, 4vw, 3.75rem); /* 40px → 60px */
+  padding-bottom: clamp(4rem, 6vw, 6.8125rem); /* 64px → 109px */
+
   h3 {
-    font-size: 48px;
+    font-size: clamp(2rem, 3.2vw, 3rem); /* 32px → 48px */
     font-weight: 600;
-    line-height: 115%;
-    letter-spacing: -4%;
+    line-height: 1.15;
+    letter-spacing: -0.04em; /* было -4% */
     color: var(--text-color2);
   }
 }
 
+.personal-trainings::after {
+  content: "";
+  background-image: url("../assets/personal.svg");
+  background-repeat: repeat;
+  background-size: contain;
+  position: absolute;
+  inset: 0;
+
+  left: -90vw;
+  width: 200vw;
+  height: 100%;
+
+  z-index: -999;
+}
+
 .trainings-list {
-  padding-top: 50px;
+  padding-top: 3.125rem; /* 50px */
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  align-items: center;
-  gap: 20px;
+  align-items: stretch;
+  gap: 1.25rem; /* 20px */
+
+  flex-wrap: nowrap; /* ключ: не врапим на десктопе */
 }
 
 .personal-card-dota {
+  border-radius: 1.5rem; /* 24px */
   background-color: #2b2b2b;
-  border-radius: 24px;
+
+  /* prefer: 24.0625rem (385px), shrink до min-width */
+  flex: 1 1 24.0625rem; /* базовая ширина 385px */
+  min-width: 20rem; /* 320px — предел сжатия */
+  max-width: 24.0625rem; /* 385px — не раздуваемся выше базы */
+}
+
+@media (max-width: 85rem) {
+  /* 1360px (можешь подвинуть) */
+  .trainings-list {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .personal-card-dota {
+    max-width: none;
+    flex: 1 1 24.0625rem; /* при wrap снова стремимся к 385 */
+    min-width: 20rem; /* 320 */
+  }
+}
+
+@media (max-width: 36rem) {
+  .personal-card-dota {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
 }
 
 .personal-card-dota-heading {
   display: flex;
   flex-direction: column;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
   background: linear-gradient(110deg, rgba(75, 54, 33, 1), rgba(25, 25, 25, 1));
   color: var(--text-color2);
-  padding: 24px;
-  border-radius: 24px;
-  box-shadow: 0 4px 4px 0 rgba(0, 0, 0, 0.25);
+  padding: 1.5rem; /* 24px */
+  border-radius: 1.5rem; /* 24px */
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* 4px */
+
   h4 {
     font-weight: 600;
-    font-size: 32px;
-    letter-spacing: -2%;
+    font-size: clamp(1.5rem, 2.2vw, 2rem); /* 24px → 32px */
+    letter-spacing: -0.02em; /* было -2% */
   }
+
   .p-first {
     font-weight: 400;
-    font-size: 20px;
-    line-height: 135%;
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.35;
   }
+
   .p-last {
     font-weight: 500;
     font-style: italic;
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
     color: #ff6c32;
   }
+
   .span-first {
     font-weight: 500;
-    font-size: 32px;
-    letter-spacing: -2%;
+    font-size: clamp(1.5rem, 2.2vw, 2rem); /* 24px → 32px */
+    letter-spacing: -0.02em;
     position: relative;
     width: max-content;
     height: max-content;
+
     &::after {
       content: "";
       width: 100%;
-      border-bottom: 3px solid #e8441e;
-      border-radius: 2px;
+      border-bottom: 0.1875rem solid #e8441e; /* 3px */
+      border-radius: 0.125rem; /* 2px */
       position: absolute;
-      top: 18px;
+      top: 1.125rem; /* 18px */
       left: 0;
       transform: rotate(-13deg);
     }
   }
+
   .span-last {
     font-weight: 700;
-    font-size: 64px;
-    line-height: 115%;
-    letter-spacing: -3%;
+    font-size: clamp(2.5rem, 4vw, 4rem); /* 40px → 64px */
+    line-height: 1.15;
+    letter-spacing: -0.03em; /* было -3% */
   }
+
   button {
-    font-size: 20px;
+    font-size: 1.25rem; /* 20px */
     font-weight: 600;
-    line-height: 105%;
-    letter-spacing: -1%;
+    line-height: 1.05;
+    letter-spacing: -0.01em;
     color: #000000;
-    padding: 16px 120px;
-    border-radius: 10px;
+
+    padding: 1rem clamp(2rem, 8vw, 7.5rem); /* 16px 32→120px */
+    border-radius: 0.625rem; /* 10px */
     cursor: pointer;
+
     transition: background-color 150ms;
+
     &:hover {
       background-color: #ccc;
     }
@@ -104,18 +144,21 @@
 }
 
 .personal-card-dota-footer {
-  padding: 32px 24px;
+  padding: 2rem 1.5rem; /* 32px 24px */
+
   ul {
     display: flex;
     flex-direction: column;
-    gap: 30px;
+    gap: 1.875rem; /* 30px */
     color: #585858;
-    font-size: 18px;
+    font-size: 1.125rem; /* 18px */
     font-weight: 400;
-    letter-spacing: -1%;
+    letter-spacing: -0.01em; /* было -1% */
+
     li {
       position: relative;
     }
+
     li:first-child {
       color: #69e430;
     }
@@ -129,7 +172,7 @@
 
 .checked {
   position: relative;
-  padding-left: 28px;
+  padding-left: 1.75rem; /* 28px */
   color: var(--text-color2);
 }
 
@@ -138,8 +181,8 @@
   position: absolute;
   left: 0;
   top: 50%;
-  width: 18px;
-  height: 18px;
+  width: 1.125rem; /* 18px */
+  height: 1.125rem; /* 18px */
   transform: translateY(-50%);
 
   background: no-repeat center / contain
@@ -148,7 +191,7 @@
 
 .cross {
   position: relative;
-  padding-left: 28px;
+  padding-left: 1.75rem; /* 28px */
 }
 
 .cross::before {
@@ -156,14 +199,15 @@
   position: absolute;
   left: 0;
   top: 50%;
-  width: 18px;
-  height: 18px;
+  width: 1.125rem;
+  height: 1.125rem;
   transform: translateY(-50%);
 
   background: no-repeat center / contain
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6L18 18M18 6L6 18' fill='none' stroke='%23585858' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
+/* темы (оставил как есть) */
 .start {
   background: linear-gradient(110deg, #5b6a2e, #3b3932);
 }

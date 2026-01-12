@@ -52,9 +52,9 @@ a {
 
 /* ОСТАВЛЯЕМ КАК БЫЛО (чтобы ничего не сломалось) */
 .app-container {
-  max-width: 1600px;
+  max-width: 1680px;
   margin: 0 auto;
-  padding-top: 40px;
+  padding: 40px;
 }
 
 /* ✅ НОВЫЙ: безопасный враппер с боковыми отступами */

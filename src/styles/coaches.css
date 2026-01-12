@@ -1,5 +1,5 @@
 .coaches {
-  padding: 60px 0;
+  padding: 3.75rem 0; /* 60px */
   position: relative;
   width: 100%;
 
@@ -18,40 +18,39 @@
   }
 
   .tag {
-    font-size: 20px;
-    letter-spacing: -1%;
-    line-height: 115%;
+    font-size: 1.25rem;
+    letter-spacing: -0.01em;
+    line-height: 1.15;
     color: var(--text-color2);
     display: inline-block;
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem; /* 10px 20px */
     background-color: rgba(255, 255, 255, 0.2);
-    border-radius: 7px;
+    border-radius: 0.4375rem; /* 7px */
     border: 1px solid rgba(255, 255, 255, 0.1);
     position: relative;
     overflow: hidden;
   }
 
   h2 {
-    font-size: 48px;
-    letter-spacing: -3%;
-    line-height: 115%;
+    font-size: 3rem;
+    letter-spacing: -0.03em;
+    line-height: 1.15;
     color: var(--text-color2);
-    padding-top: 12px;
+    padding-top: 0.75rem; /* 12px */
   }
 }
 
 .coaches-container {
-  padding-top: 50px;
+  padding-top: 3.125rem; /* 50px */
   position: relative;
 }
 
 .coaches-list {
   display: flex;
-  gap: 20px;
+  gap: 1.25rem; /* 20px */
 
   overflow-x: auto;
   overflow-y: hidden;
-
   width: 100%;
 
   scroll-behavior: smooth;
@@ -87,31 +86,17 @@
   -webkit-tap-highlight-color: transparent;
 }
 
-.coaches-nav:hover,
-.coaches-nav:focus,
-.coaches-nav:active {
-  background: transparent;
-  outline: none;
-  box-shadow: none;
-}
-
 .coaches-nav.is-hidden {
   opacity: 0;
   pointer-events: none;
 }
 
-.coaches-nav-icon {
-  display: block;
-  pointer-events: none;
-  user-select: none;
-}
-
 .coaches-nav--left {
-  left: -70px;
+  left: -4.375rem; /* 70px */
 }
 
 .coaches-nav--right {
-  right: -70px;
+  right: -4.375rem;
 }
 
 /* Карточка */
@@ -119,9 +104,9 @@
   background-color: rgba(139, 139, 139, 0.2);
   display: flex;
   flex-direction: column;
-  width: 385px;
+  width: 24.0625rem; /* 385px */
   overflow: hidden;
-  border-radius: 16px;
+  border-radius: 1rem; /* 16px */
   color: #d0d0d0;
   position: relative;
   border: 1px solid rgba(255, 255, 255, 0.3);
@@ -133,37 +118,37 @@
   h4 {
     position: absolute;
     background-color: #060606;
-    border-radius: 10px;
-    padding: 14px 30px;
+    border-radius: 0.625rem; /* 10px */
+    padding: 0.875rem 1.875rem; /* 14px 30px */
     border: 1px solid #ffffff;
     color: var(--text-color2);
     left: 50%;
     transform: translateX(-50%);
-    top: 21px;
-    font-size: 20px;
-    line-height: 115%;
+    top: 1.3125rem; /* 21px */
+    font-size: 1.25rem; /* 20px */
+    line-height: 1.15;
     white-space: nowrap;
   }
 
   .coach-info {
-    padding: 20px;
+    padding: 1.25rem; /* 20px */
     display: flex;
     flex-direction: column;
-    gap: 16px;
-    line-height: 135%;
+    gap: 1rem; /* 16px */
+    line-height: 1.35;
   }
 
   .coach-list {
     display: flex;
-    gap: 12px;
+    gap: 0.75rem; /* 12px */
 
     li {
-      padding: 7px 12px;
+      padding: 0.4375rem 0.75rem; /* 7px 12px */
       background-color: #060606;
-      border-radius: 6px;
+      border-radius: 0.375rem; /* 6px */
       border: 1px solid #f1d927;
-      font-size: 14px;
-      line-height: 115%;
+      font-size: 0.875rem; /* 14px */
+      line-height: 1.15;
       color: var(--text-color2);
       white-space: nowrap;
     }
@@ -171,45 +156,10 @@
 }
 
 .coach-card img {
-  width: 385px;
-  height: 370px;
-  border-radius: 16px 16px 0 0;
+  width: 24.0625rem; /* 385px */
+  height: 23.125rem; /* 370px */
+  border-radius: 1rem 1rem 0 0;
   user-select: none;
   pointer-events: none;
   display: block;
-}
-
-@property --a {
-  syntax: "<angle>";
-  inherits: false;
-  initial-value: 0deg;
-}
-
-.tag--animated::before {
-  content: "";
-  position: absolute;
-  inset: 0;
-  border-radius: inherit;
-  padding: 2px;
-
-  background: conic-gradient(
-    from var(--a),
-    transparent 0deg,
-    #f1d927 20deg,
-    transparent 40deg,
-    transparent 360deg
-  );
-
-  -webkit-mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
-  -webkit-mask-composite: xor;
-  mask-composite: exclude;
-
-  animation: tag-run 2.5s linear infinite;
-  pointer-events: none;
-}
-
-@keyframes tag-run {
-  to {
-    --a: 360deg;
-  }
 }

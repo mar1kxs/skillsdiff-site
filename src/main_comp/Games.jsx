@@ -16,7 +16,11 @@ const Games = () => {
     <section className="games-parent">
       <ul className="games-list">
         <li onClick={() => navigate("/valorant")} role="button" tabIndex={0}>
-          <img src={valorantCard} alt="Valorant card background" />
+          <img
+            src={valorantCard}
+            alt="Valorant card background"
+            className="cardbg"
+          />
           <div>
             Valorant{" "}
             <span>
@@ -26,7 +30,7 @@ const Games = () => {
         </li>
 
         <li onClick={() => navigate("/dota2")} role="button" tabIndex={0}>
-          <img src={dotaCard} alt="Dota 2 card background" />
+          <img src={dotaCard} alt="Dota 2 card background" className="cardbg" />
           <div>
             Dota 2
             <span>
@@ -36,7 +40,7 @@ const Games = () => {
         </li>
 
         <li aria-disabled="true" style={{ cursor: "not-allowed" }}>
-          <img src={cs2Card} alt="CS2 card background" />
+          <img src={cs2Card} alt="CS2 card background" className="cardbg" />
           <div>
             Скоро
             <span>
@@ -46,7 +50,7 @@ const Games = () => {
         </li>
 
         <li aria-disabled="true" style={{ cursor: "not-allowed" }}>
-          <img src="" alt="" />
+          <img src="" alt="" className="cardbg" />
           <div>
             Секрет
             <span>

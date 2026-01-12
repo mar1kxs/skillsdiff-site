@@ -30,7 +30,9 @@ const HeaderDota = () => {
             <div>
               <img src={icon1} alt="feature icon" />
             </div>
-            <p>Результаты гарантированы</p>
+            <p>
+              Результаты <br /> гарантированы
+            </p>
           </li>
 
           <li>
@@ -47,14 +49,19 @@ const HeaderDota = () => {
             <div>
               <img src={icon1} alt="feature icon" />
             </div>
-            <p>Команда профи-тренеров</p>
+            <p>
+              Команда профи- <br /> тренеров
+            </p>
           </li>
 
           <li>
             <div>
               <img src={icon1} alt="feature icon" />
             </div>
-            <p>Гибкость и удобство</p>
+            <p>
+              Гибкость и <br />
+              удобство
+            </p>
           </li>
         </ul>
       </div>

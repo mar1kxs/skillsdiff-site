@@ -10,7 +10,7 @@ const OtherDota = () => {
         Другие услуги <span style={{ color: "#FF6C32" }}>SkillsDiff</span>
       </h3>
       <ul className="other-dota-list">
-        <li>
+        <li className="other-dota-card">
           <div className="other-header">
             <div className="info-container">
               <h4>
@@ -36,7 +36,7 @@ const OtherDota = () => {
             </ul>
           </div>
         </li>
-        <li>
+        <li className="other-dota-card">
           <div
             className="other-header"
             style={{ background: "linear-gradient(140deg,#835F2A, #8C2D28)" }}

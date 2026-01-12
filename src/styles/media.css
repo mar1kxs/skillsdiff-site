@@ -307,7 +307,7 @@
 }
 
 @media (max-width: 1600px) {
-  .games-list {
+  /* .games-list {
     justify-content: center;
   }
   .main-features {
@@ -317,7 +317,7 @@
     justify-content: center;
   }
   .app-container {
-    padding: 40px 100px 0;
+    padding: 40px 30px 0;
   }
   .dota-features ul {
     justify-content: center;
@@ -328,5 +328,5 @@
   }
   .trainings-list {
     justify-content: center;
-  }
+  } */
 }

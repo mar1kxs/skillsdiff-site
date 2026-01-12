@@ -52,6 +52,9 @@
     gap: 24px;
     width: 385px;
     transition: 150ms;
+    flex-basis: 385px;
+    flex-shrink: 2;
+    flex-grow: 1;
     &:first-child {
       background: rgba(241, 217, 39, 1);
       color: #000000;
