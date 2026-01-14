@@ -2,9 +2,9 @@ import React from "react";
 import "../styles/games.css";
 import { useNavigate } from "react-router-dom";
 
-import valorantCard from "../assets/ValorantCard.png";
+import valorantCard from "../assets/ValoCardBG.png";
 import valorantSmall from "../assets/ValorantSmall.png";
-import dotaCard from "../assets/DOTA2Card.png";
+import dotaCard from "../assets/DotaCardBg.png";
 import dotaSmall from "../assets/dotaSmall.png";
 import cs2Card from "../assets/CS2Card.png";
 import csSmall from "../assets/csSmall.png";
@@ -15,7 +15,12 @@ const Games = () => {
   return (
     <section className="games-parent">
       <ul className="games-list">
-        <li onClick={() => navigate("/valorant")} role="button" tabIndex={0}>
+        <li
+          onClick={() => navigate("/valorant")}
+          role="button"
+          tabIndex={0}
+          className="valorantcard games-card"
+        >
           <img
             src={valorantCard}
             alt="Valorant card background"
@@ -29,7 +34,12 @@ const Games = () => {
           </div>
         </li>
 
-        <li onClick={() => navigate("/dota2")} role="button" tabIndex={0}>
+        <li
+          onClick={() => navigate("/dota2")}
+          role="button"
+          tabIndex={0}
+          className="dotacard games-card"
+        >
           <img src={dotaCard} alt="Dota 2 card background" className="cardbg" />
           <div>
             Dota 2

@@ -79,9 +79,7 @@
   }
 }
 
-/* <=1280px: разрешаем wrap, карточки 2 в ряд (если их много) */
 @media (max-width: 80rem) {
-  /* 1280px */
   .games-list {
     flex-wrap: wrap;
     justify-content: center;
@@ -90,19 +88,48 @@
   .games-list li {
     max-width: none;
     flex: 1 1 calc(50% - 1.25rem);
-    min-width: 18.75rem; /* 300px */
+    min-width: 18.75rem;
   }
 }
 
-/* <=640px: 1 в ряд */
 @media (max-width: 40rem) {
-  /* 640px */
   .games-list li {
     flex: 1 1 100%;
     min-width: 100%;
   }
 
   .games-list li div {
-    gap: 1rem; /* 16px */
+    gap: 1rem;
   }
+}
+
+.cardbg {
+  filter: brightness(0.6);
+  transition: 200ms;
+}
+
+.valorantcard::after {
+  background-image: url("./src/assets/valoTitle.svg");
+}
+
+.games-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 0;
+  z-index: 999;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: clamp(12.5rem, 18vw, 17.5rem);
+  aspect-ratio: 3 / 1;
+}
+
+.dotacard::after {
+  background-image: url("./src/assets/DotaTitle.svg");
+}
+
+.games-card:hover .cardbg {
+  filter: brightness(0.8);
 }
