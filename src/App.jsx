@@ -5,6 +5,7 @@ import "./App.css";
 import RningLine from "./RningLine";
 import Footer from "./Footer";
 import DotaPage from "./pages/DotaPage";
+import ValorantPage from "./pages/ValorantPage";
 import "./styles/media.css";
 
 function App() {
@@ -17,6 +18,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Main />} />
           <Route path="/dota2" element={<DotaPage />} />
+          <Route path="/valorant" element={<ValorantPage />} />
         </Routes>
 
         <Footer />

@@ -14,8 +14,8 @@ const DotaPage = () => {
       <PersonalTrn />
       <WithFriendsTrn />
       <OtherDota />
-      <Coaches />
-      <Reviews className="dota-reviews" />
+      <Coaches titlecolor="#FF6C32" />
+      <Reviews titlecolor="#FF6C32" />
       <Faq />
     </>
   );

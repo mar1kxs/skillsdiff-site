@@ -1,5 +1,7 @@
 import React, { useState, useRef, useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+
 import "./styles/nav.css";
 
 import logo from "./assets/logo.svg";
@@ -17,6 +19,8 @@ const Nav = () => {
   const [open, setOpen] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const menuRef = useRef(null);
+
+  const navigate = useNavigate();
 
   useEffect(() => {
     const handler = (e) => {
@@ -70,10 +74,10 @@ const Nav = () => {
             </button>
 
             <ul className={`btn-list ${open ? "open" : ""}`}>
-              <li>
+              <li onClick={() => navigate("/valorant")}>
                 <img src={navValorantBg} alt="Valorant" />
               </li>
-              <li>
+              <li onClick={() => navigate("/dota2")}>
                 <img src={navDotaBg} alt="Dota 2" />
               </li>
               <li>

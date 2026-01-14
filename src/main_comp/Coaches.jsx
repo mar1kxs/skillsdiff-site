@@ -6,7 +6,7 @@ import arrright from "../assets/arrow-right.svg";
 
 const images = import.meta.glob("../assets/*", { eager: true });
 
-const Coaches = () => {
+const Coaches = (props) => {
   const listRef = useRef(null);
   const [canLeft, setCanLeft] = useState(false);
   const [canRight, setCanRight] = useState(false);
@@ -53,7 +53,12 @@ const Coaches = () => {
     <section className="coaches">
       <h3 className="tag tag--animated">Опыт. Практика. Результат</h3>
       <h2>
-        Наша команда <span style={{ color: "#F1D927" }}>Тренеров</span>
+        Наша команда{" "}
+        <span
+          style={{ color: props.titlecolor ? props.titlecolor : "#F1D927" }}
+        >
+          Тренеров
+        </span>
       </h2>
 
       <div className="coaches-container">

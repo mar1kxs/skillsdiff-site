@@ -5,7 +5,7 @@ import stars from "../assets/5stars.svg";
 
 const CLOSED_HEIGHT = 298;
 
-const Reviews = () => {
+const Reviews = (props) => {
   const [openKey, setOpenKey] = useState(null);
   const cardRefs = useRef({});
 
@@ -97,7 +97,12 @@ const Reviews = () => {
       <span className="purple1-review"></span>
       <span className="purple2-review"></span>
       <h2>
-        Отзывы наших <span style={{ color: "#F1D927" }}>учеников</span>
+        Отзывы наших{" "}
+        <span
+          style={{ color: props.titlecolor ? props.titlecolor : "#F1D927" }}
+        >
+          учеников
+        </span>
       </h2>
 
       <div className="reviews-container reviews-auto">

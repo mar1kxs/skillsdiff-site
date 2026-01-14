@@ -1,0 +1,222 @@
+.personal-trainings {
+  position: relative;
+  padding-top: clamp(2.5rem, 4vw, 3.75rem);
+  padding-bottom: clamp(4rem, 6vw, 6.8125rem);
+
+  h3 {
+    font-size: clamp(2rem, 3.2vw, 3rem);
+    font-weight: 600;
+    line-height: 1.15;
+    letter-spacing: -0.04em;
+    color: var(--text-color2);
+  }
+}
+
+.personal-trainings::after {
+  content: "";
+  background-image: url("../assets/personal.svg");
+  background-repeat: repeat;
+  background-size: contain;
+  position: absolute;
+  inset: 0;
+  left: -90vw;
+  width: 200vw;
+  height: 100%;
+  z-index: -999;
+}
+
+.trainings-list {
+  padding-top: 3.125rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: stretch;
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  flex-wrap: nowrap;
+  width: 100%;
+}
+
+.personal-card-valo {
+  border-radius: 1.5rem;
+  background-color: #2b2b2b;
+
+  flex: 1 1 24.0625rem;
+  max-width: 24.0625rem;
+  min-width: 18.75rem;
+}
+
+@media (max-width: 80rem) {
+  .trainings-list {
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 1.25rem;
+  }
+
+  .personal-card-valo {
+    max-width: none;
+    flex: 1 1 calc(50% - 1.25rem);
+    min-width: 18.75rem;
+  }
+}
+
+@media (max-width: 36rem) {
+  .personal-card-valo {
+    flex: 1 1 100%;
+    min-width: 100%;
+  }
+}
+
+.personal-card-valo-heading {
+  display: flex;
+  flex-direction: column;
+  gap: 1.25rem;
+  background: linear-gradient(110deg, rgba(75, 54, 33, 1), rgba(25, 25, 25, 1));
+  color: var(--text-color2);
+  border-radius: 1.5rem;
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
+
+  padding: 1.5rem clamp(1.25rem, 1.8vw, 1.5rem);
+}
+
+@media (max-width: 80rem) {
+  .personal-card-valo-heading {
+    padding: 1.5rem;
+  }
+}
+
+.personal-card-valo-heading h4 {
+  font-weight: 600;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  letter-spacing: -0.02em;
+}
+
+.personal-card-valo-heading .p-first {
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.35;
+}
+
+.personal-card-valo-heading .p-last {
+  font-weight: 500;
+  font-style: italic;
+  font-size: 1.25rem;
+  color: #ff4350;
+}
+
+.personal-card-valo-heading .span-first {
+  font-weight: 500;
+  font-size: clamp(1.5rem, 2.2vw, 2rem);
+  letter-spacing: -0.02em;
+  position: relative;
+  width: max-content;
+  height: max-content;
+}
+
+.personal-card-valo-heading .span-first::after {
+  content: "";
+  width: 100%;
+  border-bottom: 0.1875rem solid #e8441e;
+  border-radius: 0.125rem;
+  position: absolute;
+  top: 1.125rem;
+  left: 0;
+  transform: rotate(-13deg);
+}
+
+.personal-card-valo-heading .span-last {
+  font-weight: 700;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1.15;
+  letter-spacing: -0.03em;
+}
+
+.personal-card-valo-heading button {
+  font-size: 1.25rem;
+  font-weight: 600;
+  line-height: 1.05;
+  letter-spacing: -0.01em;
+  color: #000000;
+  padding: 1rem clamp(2rem, 8vw, 7.5rem);
+  border-radius: 0.625rem;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  transition: background-color 150ms;
+}
+
+.personal-card-valo-heading button:hover {
+  background-color: #ccc;
+}
+
+.personal-card-valo-footer {
+  padding: 2rem 1.5rem;
+
+  ul {
+    display: flex;
+    flex-direction: column;
+    gap: 1.875rem;
+    color: #585858;
+    font-size: 1.125rem;
+    font-weight: 400;
+    letter-spacing: -0.01em;
+
+    li {
+      position: relative;
+    }
+
+    li:first-child {
+      color: #69e430;
+    }
+  }
+}
+
+.personal-card-valo-footer ul li:first-child.checked::before {
+  background: no-repeat center / contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%2369E430' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.checked {
+  position: relative;
+  padding-left: 1.75rem;
+  color: var(--text-color2);
+}
+
+.checked::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+  transform: translateY(-50%);
+  background: no-repeat center / contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%23FFFFFF' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.cross {
+  position: relative;
+  padding-left: 1.75rem;
+}
+
+.cross::before {
+  content: "";
+  position: absolute;
+  left: 0;
+  top: 50%;
+  width: 1.125rem;
+  height: 1.125rem;
+  transform: translateY(-50%);
+  background: no-repeat center / contain
+    url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M6 6L18 18M18 6L6 18' fill='none' stroke='%23585858' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
+}
+
+.start {
+  background: linear-gradient(110deg, #5b6a2e, #3b3932);
+}
+
+.divine {
+  background: linear-gradient(110deg, #2a4783, #82288c);
+}
+
+.immortal {
+  background: linear-gradient(110deg, #2e11a4, #ff6c32);
+}
