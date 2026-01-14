@@ -3,9 +3,10 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  padding-top: 60px;
+  padding-top: 3.75rem;
   position: relative;
-  padding-bottom: 128px;
+  padding-bottom: 8rem;
+
   img {
     position: absolute;
     width: 100vw;
@@ -14,72 +15,109 @@
     pointer-events: none;
     z-index: -1;
   }
+
   .tag {
-    padding: 10px 20px;
+    padding: 0.625rem 1.25rem;
     background-color: var(--section-components-bg-color);
     display: inline-block;
     color: var(--text-color2);
-    font-size: 20px;
-    border-radius: 7px;
+    font-size: 1.25rem;
+    border-radius: 0.4375rem;
     border: 1px solid #ffffff1a;
     position: relative;
   }
+
   h2 {
     color: var(--text-color2);
-    font-size: 48px;
-    line-height: 115%;
-    letter-spacing: -3%;
+    font-size: 3rem;
+    line-height: 1.15;
+    letter-spacing: -0.03em;
     font-weight: 700;
-    padding-top: 12px;
+    padding-top: 0.75rem;
   }
 }
 
 .steps-list {
   display: flex;
   justify-content: space-between;
-  flex-wrap: wrap;
-  gap: 20px;
-  padding-top: 50px;
-  li {
-    color: var(--text-color2);
-    background: rgba(255, 255, 255, 0.2);
-    padding: 32px;
-    border-radius: 22px;
-    border: 1px solid #ffffff1a;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-between;
-    gap: 24px;
-    width: 385px;
-    transition: 150ms;
-    flex-basis: 385px;
-    flex-shrink: 2;
-    flex-grow: 1;
-    &:first-child {
-      background: rgba(241, 217, 39, 1);
-      color: #000000;
-      p {
-        color: #000000;
-      }
-    }
-    span {
-      font-size: 24px;
-      letter-spacing: -2%;
-      line-height: 115%;
-    }
-    h4 {
-      font-size: 24px;
-      max-width: 230px;
-      letter-spacing: -2%;
-      line-height: 115%;
-      font-weight: 700;
-    }
-    p {
-      font-size: 16px;
-      color: var(--text-color3);
-      line-height: 135%;
-      letter-spacing: 0%;
-      font-weight: 400;
-    }
+  flex-wrap: nowrap;
+  gap: clamp(0.75rem, 1.2vw, 1.25rem);
+  padding-top: 3.125rem;
+  width: 100%;
+}
+
+.steps-list li {
+  color: var(--text-color2);
+  background: rgba(255, 255, 255, 0.2);
+  border-radius: 1.375rem;
+  border: 1px solid #ffffff1a;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  gap: 1.5rem;
+  transition: 150ms;
+
+  flex: 1 1 24.0625rem;
+  max-width: 24.0625rem;
+  min-width: 18.75rem;
+
+  padding: 2rem clamp(1.25rem, 1.8vw, 2rem);
+}
+
+.steps-list li:first-child {
+  background: rgba(241, 217, 39, 1);
+  color: #000000;
+}
+
+.steps-list li:first-child p {
+  color: #000000;
+}
+
+.steps-list li span {
+  font-size: 1.5rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+}
+
+.steps-list li h4 {
+  font-size: 1.5rem;
+  max-width: 14.375rem;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  font-weight: 700;
+}
+
+.steps-list li p {
+  font-size: 1rem;
+  color: var(--text-color3);
+  line-height: 1.35;
+  letter-spacing: 0;
+  font-weight: 400;
+}
+
+@media (max-width: 80rem) {
+  .steps-list {
+    flex-wrap: wrap;
+    justify-content: center;
+
+    gap: 1.25rem;
+  }
+
+  .steps-list li {
+    max-width: none;
+    flex: 1 1 calc(50% - 1.25rem);
+    min-width: 18.75rem;
+    padding: 2rem;
+  }
+}
+
+@media (max-width: 40rem) {
+  .steps-list {
+    gap: 1.25rem;
+  }
+  .steps-list li {
+    flex: 1 1 100%;
+    min-width: 100%;
+    padding: 2rem;
   }
 }

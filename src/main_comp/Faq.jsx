@@ -97,7 +97,9 @@ export default function FAQ() {
                 onClick={() => toggle(index)}
               >
                 {item.question}
-                <span>{openIndex === index ? "−" : "+"}</span>
+                <span className="faq-symbol">
+                  {openIndex === index ? "−" : "+"}
+                </span>
               </button>
 
               <div className="faq-answer">{item.answer}</div>

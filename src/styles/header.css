@@ -37,7 +37,6 @@
 
 .main-features {
   display: flex;
-  flex-direction: row;
   width: 100%;
   justify-content: space-between;
   gap: 1.25rem;
@@ -48,7 +47,6 @@
 
 .main-features li {
   display: flex;
-  padding: 2rem;
   background-color: var(--section-components-bg-color);
   border-radius: var(--section-components-border-radius);
   border: var(--section-components-border);
@@ -56,10 +54,12 @@
 
   flex: 1 1 24.0625rem;
   max-width: 24.0625rem;
-  min-width: 19.6875rem;
+  min-width: 18.75rem;
 
   min-height: 11.25rem;
   height: auto;
+
+  padding: 2rem clamp(1.25rem, 1.8vw, 2rem);
 
   .text-container {
     display: flex;
@@ -82,7 +82,7 @@
   }
 }
 
-@media (max-width: 84.75rem) {
+@media (max-width: 80rem) {
   .main-features {
     flex-wrap: wrap;
     justify-content: center;
@@ -90,8 +90,9 @@
 
   .main-features li {
     max-width: none;
-    flex: 1 1 24.0625rem;
-    min-width: 19.6875rem;
+    flex: 1 1 calc(50% - 1.25rem);
+    min-width: 18.75rem;
+    padding: 2rem;
   }
 }
 
@@ -99,6 +100,7 @@
   .main-features li {
     flex: 1 1 100%;
     min-width: 100%;
+    padding: 2rem;
   }
 }
 

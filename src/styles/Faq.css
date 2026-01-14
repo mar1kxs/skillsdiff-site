@@ -1,8 +1,8 @@
 .faq {
-  padding: 3.75rem 0; /* 60px */
+  padding: 3.75rem 0;
 
   h2 {
-    font-size: 3rem; /* 48px */
+    font-size: 3rem;
     letter-spacing: -0.03em;
     line-height: 1.15;
     color: var(--text-color2);
@@ -28,21 +28,21 @@
 }
 
 .faq-container {
-  padding-top: 5rem; /* 80px */
+  padding-top: 5rem;
   display: flex;
-  gap: 1.25rem; /* 20px */
+  gap: 1.25rem;
 }
 
 .faq-card {
   height: fit-content;
-  padding: 2.5rem; /* 40px */
+  padding: 2.5rem;
   color: var(--text-color2);
   display: flex;
   flex-direction: column;
   align-items: start;
   background-color: rgba(33, 33, 33, 1);
-  gap: 1.875rem; /* 30px */
-  border-radius: 1.25rem; /* 20px */
+  gap: 1.875rem;
+  border-radius: 1.25rem;
   border: 1px solid rgba(241, 217, 39, 0.3);
 
   background: linear-gradient(
@@ -58,10 +58,15 @@
 
   h3 {
     text-align: start;
+    font-size: 1.75rem;
+    line-height: 1.15;
+    letter-spacing: -0.02em;
   }
 
   p {
-    max-width: 23.125rem; /* 370px */
+    max-width: 23.125rem;
+    font-size: 1.0625rem;
+    line-height: 1.35;
   }
 
   img:first-child {
@@ -82,7 +87,7 @@
 }
 
 .tg-icon {
-  width: 4rem; /* 64px */
+  width: 4rem;
   height: 4rem;
   display: block;
 }
@@ -90,39 +95,32 @@
 .faq-zone {
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* 20px */
+  gap: 1.25rem;
   color: var(--text-color2);
   flex: 1;
 }
 
-/* ====== FIX: плавное открытие/закрытие без "ступеньки" ====== */
-
 .faq-item {
   position: relative;
-  border-radius: 1.25rem; /* 20px */
+  border-radius: 1.25rem;
   border: 1px solid rgba(255, 255, 255, 0.3);
   overflow: hidden;
   background: transparent;
-
-  /* делаем элемент grid, чтобы ответ раскрывался через 0fr/1fr */
   display: grid;
-  grid-template-rows: auto 0fr; /* question + answer */
+  grid-template-rows: auto 0fr;
   transition: grid-template-rows 0.35s ease;
 }
 
-/* ГРАДИЕНТНЫЙ СЛОЙ */
 .faq-item::before {
   content: "";
   position: absolute;
   inset: 0;
   border-radius: inherit;
-
   background: linear-gradient(
     to right,
     rgba(91, 89, 241, 0.35),
     rgba(255, 62, 0, 0.15)
   );
-
   opacity: 0;
   transition: opacity 0.3s ease;
   pointer-events: none;
@@ -134,20 +132,18 @@
   opacity: 1;
 }
 
-/* КОНТЕНТ ПОВЕРХ */
 .faq-question,
 .faq-answer {
   position: relative;
   z-index: 1;
 }
 
-/* КНОПКА */
 .faq-question {
   outline: none;
   background: transparent;
   color: var(--text-color2);
-  font-size: 1.5rem; /* 24px */
-  padding: 2rem; /* 32px */
+  font-size: 1.5rem;
+  padding: 2rem;
   width: 100%;
   text-align: left;
   border: none;
@@ -157,25 +153,19 @@
   cursor: pointer;
 }
 
-/* ОТВЕТ: теперь это "контейнер строки грида" */
 .faq-answer {
-  font-size: 1.125rem; /* 18px */
+  font-size: 1.125rem;
   line-height: 1.35;
   color: var(--text-color2);
-  max-width: 46.875rem; /* 750px */
-
-  /* важно для 0fr/1fr */
+  max-width: 46.875rem;
   overflow: hidden;
   min-height: 0;
-
-  /* визуальная анимация */
   opacity: 0;
-  transform: translateY(-0.75rem); /* 12px */
-  padding: 0 1.875rem; /* 30px */
+  transform: translateY(-0.75rem);
+  padding: 0 1.875rem;
   transition: opacity 0.2s ease, transform 0.2s ease, padding 0.2s ease;
 }
 
-/* Открыто */
 .faq-item.open {
   grid-template-rows: auto 1fr;
 }
@@ -186,10 +176,63 @@
   padding: 0 1.875rem 1.875rem;
 }
 
-/* если хочешь ещё мягче закрытие текста */
+@media (max-width: 43.75rem) {
+  .faq-container {
+    flex-direction: column-reverse;
+    padding-top: 3rem;
+    gap: 1.25rem;
+  }
+
+  .faq h2 {
+    font-size: clamp(2rem, 6.5vw, 3rem);
+  }
+
+  .faq-card {
+    padding: 2rem;
+    border-radius: 1.125rem;
+  }
+
+  .faq-card h3 {
+    font-size: 1.5rem;
+  }
+
+  .faq-card p {
+    font-size: 1rem;
+  }
+
+  .faq-question {
+    font-size: 1.25rem;
+    padding: 1.5rem;
+  }
+
+  .faq-answer {
+    font-size: 1rem;
+    padding: 0 1.5rem;
+  }
+
+  .faq-item.open .faq-answer {
+    padding: 0 1.5rem 1.5rem;
+  }
+
+  .tg-icon {
+    width: 3.5rem;
+    height: 3.5rem;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .faq-item,
   .faq-answer {
     transition: none;
   }
+}
+
+@media (max-width: 80rem) {
+  .faq-question {
+    font-size: 1.3rem;
+  }
+}
+
+.faq-symbol {
+  padding-left: 1rem;
 }

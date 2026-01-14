@@ -191,3 +191,15 @@
   pointer-events: none;
   z-index: -1;
 }
+
+@media (max-width: 80rem) {
+  .review-card h4 {
+    font-size: 22px;
+  }
+  .review-card p {
+    font-size: 15px;
+  }
+  .more-reviews {
+    font-size: 18px;
+  }
+}

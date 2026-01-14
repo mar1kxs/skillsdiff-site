@@ -1,6 +1,9 @@
 import React from "react";
 import "../styles/dotahdr.css";
 import icon1 from "../assets/d2featicon.svg";
+import icon2 from "../assets/d2featicon2.svg";
+import icon3 from "../assets/d2featicon3.svg";
+import icon4 from "../assets/d2featicon4.svg";
 import dotaBg from "../assets/DotaBG.png";
 
 const HeaderDota = () => {
@@ -28,7 +31,7 @@ const HeaderDota = () => {
         <ul>
           <li>
             <div>
-              <img src={icon1} alt="feature icon" />
+              <img src={icon1} alt="feature icon 1" />
             </div>
             <p>
               Результаты <br /> гарантированы
@@ -37,7 +40,7 @@ const HeaderDota = () => {
 
           <li>
             <div>
-              <img src={icon1} alt="feature icon" />
+              <img src={icon2} alt="feature icon 2" />
             </div>
             <p>
               Безусловный <br />
@@ -47,7 +50,7 @@ const HeaderDota = () => {
 
           <li>
             <div>
-              <img src={icon1} alt="feature icon" />
+              <img src={icon3} alt="feature icon 3" />
             </div>
             <p>
               Команда профи- <br /> тренеров
@@ -56,7 +59,7 @@ const HeaderDota = () => {
 
           <li>
             <div>
-              <img src={icon1} alt="feature icon" />
+              <img src={icon4} alt="feature icon 4" />
             </div>
             <p>
               Гибкость и <br />

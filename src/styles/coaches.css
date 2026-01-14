@@ -43,6 +43,7 @@
 .coaches-container {
   padding-top: 3.125rem; /* 50px */
   position: relative;
+  width: 100%;
 }
 
 .coaches-list {
@@ -92,7 +93,7 @@
 }
 
 .coaches-nav--left {
-  left: -4.375rem; /* 70px */
+  left: -4.375rem;
 }
 
 .coaches-nav--right {
