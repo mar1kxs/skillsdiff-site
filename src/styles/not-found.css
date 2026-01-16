@@ -1,0 +1,48 @@
+.notfound-page {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 40px;
+  height: 100vh;
+}
+
+.notfound-text {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  color: var(--text-color2);
+  align-items: center;
+  text-align: center;
+}
+
+.notfound-page span {
+  font-size: 128px;
+  font-weight: 700;
+  letter-spacing: -3%;
+  color: #f1d927;
+}
+
+.notfound-text h1 {
+  font-weight: 700;
+  font-size: 48px;
+  letter-spacing: -3%;
+}
+
+.notfound-text p {
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 135%;
+}
+
+.notfound-page button {
+  background-color: var(--text-color2);
+  color: #000000;
+  font-weight: 600;
+  font-size: 20px;
+  letter-spacing: -1%;
+  line-height: 105%;
+  width: 321px;
+  padding: 16px;
+  border-radius: 10px;
+}

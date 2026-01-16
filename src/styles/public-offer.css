@@ -1,0 +1,53 @@
+.public-offer-page {
+  display: flex;
+  padding: 120px 30px;
+  justify-content: center;
+  align-items: center;
+  color: var(--text-color2);
+}
+
+.public-offer-page h1 {
+  font-weight: 600;
+  font-size: 48px;
+  line-height: 115%;
+  letter-spacing: -4%;
+  margin-bottom: 60px;
+}
+
+.public-offer-page h2 {
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 115%;
+  letter-spacing: -2%;
+}
+
+.po-container section {
+  display: flex;
+  flex-direction: column;
+  gap: 32px;
+}
+
+.po-container section ol {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
+}
+
+.po-container {
+  display: flex;
+  flex-direction: column;
+  gap: 60px;
+  padding: 60px;
+  border-radius: 24px;
+  background-color: rgba(255, 255, 255, 0.1);
+  width: 1200px;
+}
+
+.po-container p {
+  font-size: 20px;
+  font-weight: 400;
+  line-height: 135%;
+}

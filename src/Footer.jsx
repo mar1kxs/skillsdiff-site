@@ -61,13 +61,13 @@ const Footer = () => {
             <h4>Условия</h4>
             <ul className="inside-list">
               <li>
-                <a href="#/rules">Правила тренировок</a>
+                <a href="#/trainings-rules">Правила тренировок</a>
               </li>
               <li>
-                <a href="#/offer">Договор публичной оферты</a>
+                <a href="#/public-offer">Договор публичной оферты</a>
               </li>
               <li>
-                <a href="#/privacy">Политика конфиденциальности</a>
+                <a href="#/privacy-policy">Политика конфиденциальности</a>
               </li>
             </ul>
           </li>

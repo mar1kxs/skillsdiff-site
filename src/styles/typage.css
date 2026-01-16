@@ -1,0 +1,65 @@
+.ty-page {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 160px;
+  height: 100vh;
+}
+
+.ty-page h1 {
+  font-size: 48px;
+  font-weight: 700;
+  line-height: 115%;
+  letter-spacing: -7%;
+  max-width: 810px;
+}
+
+.ty-content {
+  color: var(--text-color2);
+  display: flex;
+  gap: 40px;
+  flex-direction: column;
+}
+
+.ty-text {
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+  font-size: 20px;
+  line-height: 135%;
+  font-weight: 400;
+  max-width: 807px;
+}
+
+.ty-text p:first-child {
+  font-weight: 500;
+  font-size: 24px;
+}
+
+.ty-text a {
+  text-decoration: underline;
+  color: #ff4350;
+  font-weight: 700;
+}
+
+.ty-page img {
+  width: clamp(215px, 50vw, 593px);
+  aspect-ratio: 593/315;
+  user-select: none;
+  pointer-events: none;
+}
+
+.ty-button {
+  display: flex;
+  justify-content: center;
+  width: 321px;
+  padding: 16px;
+  border-radius: 10px;
+  font-weight: 600;
+  font-size: 20px;
+  line-height: 105%;
+  letter-spacing: -1%;
+  cursor: pointer;
+  background-color: var(--text-color2);
+  color: #000000;
+}
