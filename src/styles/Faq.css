@@ -45,7 +45,8 @@
   border-radius: 1.25rem;
   border: 1px solid rgba(241, 217, 39, 0.3);
 
-  background: linear-gradient(
+  background:
+    linear-gradient(
       -140deg,
       rgba(91, 89, 241, 0.2) 1%,
       rgba(255, 255, 255, 0.05) 50%
@@ -163,7 +164,10 @@
   opacity: 0;
   transform: translateY(-0.75rem);
   padding: 0 1.875rem;
-  transition: opacity 0.2s ease, transform 0.2s ease, padding 0.2s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.2s ease,
+    padding 0.2s ease;
 }
 
 .faq-item.open {
@@ -177,12 +181,6 @@
 }
 
 @media (max-width: 43.75rem) {
-  .faq-container {
-    flex-direction: column-reverse;
-    padding-top: 3rem;
-    gap: 1.25rem;
-  }
-
   .faq h2 {
     font-size: clamp(2rem, 6.5vw, 3rem);
   }
@@ -231,8 +229,23 @@
   .faq-question {
     font-size: 1.3rem;
   }
+  .faq-container {
+    flex-direction: column-reverse;
+    padding-top: 3rem;
+    gap: 1.25rem;
+  }
 }
 
 .faq-symbol {
   padding-left: 1rem;
+}
+
+.faq-link {
+  color: #5b7cff;
+  text-decoration: underline;
+  font-weight: 500;
+}
+
+.faq-link:hover {
+  opacity: 0.85;
 }

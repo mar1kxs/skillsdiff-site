@@ -2,7 +2,6 @@
   position: relative;
   padding-top: clamp(2.5rem, 4vw, 3.75rem);
   padding-bottom: clamp(4rem, 6vw, 6.8125rem);
-
   h3 {
     font-size: clamp(2rem, 3.2vw, 3rem);
     font-weight: 600;
@@ -41,10 +40,11 @@
 
   flex: 1 1 24.0625rem;
   max-width: 24.0625rem;
-  min-width: 18.75rem;
+  min-width: 17.5rem;
 }
 
 @media (max-width: 80rem) {
+  /* 1280px */
   .trainings-list {
     flex-wrap: wrap;
     justify-content: center;
@@ -54,7 +54,7 @@
   .personal-card-dota {
     max-width: none;
     flex: 1 1 calc(50% - 1.25rem);
-    min-width: 18.75rem;
+    min-width: 18.75rem; /* обратно 300px для 2x2 */
   }
 }
 
@@ -74,7 +74,7 @@
   border-radius: 1.5rem;
   box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 
-  padding: 1.5rem clamp(1.25rem, 1.8vw, 1.5rem);
+  padding: 1.5rem clamp(0.8rem, 1.5vw, 1.5rem);
 }
 
 @media (max-width: 80rem) {
@@ -148,7 +148,7 @@
 }
 
 .personal-card-dota-footer {
-  padding: 2rem 1.5rem;
+  padding: 1.5rem clamp(0.8rem, 1.5vw, 1.5rem);
 
   ul {
     display: flex;
@@ -219,4 +219,10 @@
 
 .immortal {
   background: linear-gradient(110deg, #2e11a4, #ff6c32);
+}
+
+@media (max-width: 81.25rem) {
+  .trainings-list {
+    gap: clamp(0.5rem, 1vw, 1.25rem);
+  }
 }

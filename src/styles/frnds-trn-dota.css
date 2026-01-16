@@ -1,5 +1,5 @@
 .frnds-trn {
-  padding: clamp(2.5rem, 4vw, 3.75rem) 0; /* 40px → 60px */
+  padding: clamp(2.5rem, 4vw, 3.75rem) 0;
   position: relative;
   width: 100%;
 
@@ -19,37 +19,32 @@
 
   h3 {
     font-weight: 600;
-    font-size: clamp(2rem, 3.2vw, 3rem); /* 32px → 48px */
+    font-size: clamp(2rem, 3.2vw, 3rem);
     line-height: 1.15;
     letter-spacing: -0.04em;
     color: var(--text-color2);
   }
 }
 
-/* LIST: 4 карточки — на десктопе без wrap, потом 2/1 */
 .frnds-list {
   display: flex;
   justify-content: space-between;
-  padding-top: clamp(2rem, 3vw, 3.125rem); /* 32px → 50px */
+  padding-top: clamp(2rem, 3vw, 3.125rem);
   align-items: stretch;
-  gap: clamp(0.75rem, 1.6vw, 1.25rem); /* 12px → 20px */
-  flex-wrap: nowrap; /* держим 4 в ряд пока возможно */
+  gap: clamp(0.75rem, 1.6vw, 1.25rem);
+  flex-wrap: nowrap;
 }
 
-/* CARD: базовая ширина близко к 385px, сжатие до минимума */
 .frnds-card {
   background-color: #2b2b2b;
-  border-radius: 1.5rem; /* 24px */
+  border-radius: 1.5rem;
 
-  /* 4 в ряд: стремимся к 385px, но можем сжиматься */
-  flex: 1 1 24.0625rem; /* 385px */
-  min-width: 18.75rem; /* 300px: дальше уже тесно */
-  max-width: 24.0625rem; /* 385px: не раздуваемся */
+  flex: 1 1 24.0625rem;
+  min-width: 17.5rem;
+  max-width: 24.0625rem;
 }
 
-/* <=1280px: 2 в ряд (wrap) */
 @media (max-width: 80rem) {
-  /* 1280px */
   .frnds-list {
     flex-wrap: wrap;
     justify-content: center;
@@ -57,14 +52,12 @@
 
   .frnds-card {
     flex: 1 1 calc(50% - 1.25rem);
-    min-width: 18.75rem; /* 300px */
+    min-width: 18.75rem;
     max-width: none;
   }
 }
 
-/* <=640px: 1 в ряд */
 @media (max-width: 40rem) {
-  /* 640px */
   .frnds-card {
     flex: 1 1 100%;
     min-width: 100%;
@@ -72,32 +65,32 @@
 }
 
 .frnds-card-header {
-  padding: 1.5rem; /* 24px */
+  padding: 1.5rem;
   color: var(--text-color2);
   display: flex;
   flex-direction: column;
-  gap: 1.25rem; /* 20px */
-  border-radius: 1.5rem; /* 24px */
+  gap: 1.25rem;
+  border-radius: 1.5rem;
   border: 1px solid #aeaeae;
-  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25); /* 4px */
+  box-shadow: 0 0.25rem 0.25rem 0 rgba(0, 0, 0, 0.25);
 
   h4 {
     font-weight: 600;
-    font-size: clamp(1.5rem, 2.2vw, 2rem); /* 24px → 32px */
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
     letter-spacing: -0.02em;
   }
 
   p {
     font-weight: 500;
     font-style: italic;
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     line-height: 1;
     color: #ff6c32;
   }
 
   .span-first {
     font-weight: 500;
-    font-size: clamp(1.5rem, 2.2vw, 2rem); /* 24px → 32px */
+    font-size: clamp(1.5rem, 2.2vw, 2rem);
     letter-spacing: -0.02em;
     position: relative;
     max-width: fit-content;
@@ -105,10 +98,10 @@
     &::after {
       content: "";
       width: 100%;
-      border-bottom: 0.1875rem solid #e8441e; /* 3px */
-      border-radius: 0.125rem; /* 2px */
+      border-bottom: 0.1875rem solid #e8441e;
+      border-radius: 0.125rem;
       position: absolute;
-      top: 1.125rem; /* 18px */
+      top: 1.125rem;
       left: 0;
       transform: rotate(-15deg);
     }
@@ -116,13 +109,13 @@
 
   .span-last {
     font-weight: 700;
-    font-size: clamp(2.5rem, 4vw, 4rem); /* 40px → 64px */
+    font-size: clamp(2.5rem, 4vw, 4rem);
     line-height: 1.15;
     letter-spacing: -0.03em;
   }
 
   button {
-    font-size: 1.25rem; /* 20px */
+    font-size: 1.25rem;
     font-weight: 600;
     line-height: 1.05;
     letter-spacing: -0.01em;
@@ -130,8 +123,8 @@
     display: flex;
     justify-content: center;
 
-    padding: 1rem clamp(2rem, 8vw, 7.5rem); /* 16px 32→120px */
-    border-radius: 0.625rem; /* 10px */
+    padding: 1rem clamp(2rem, 8vw, 7.5rem);
+    border-radius: 0.625rem;
 
     cursor: pointer;
     transition: background-color 150ms;
@@ -143,14 +136,14 @@
 }
 
 .frnds-card-footer {
-  padding: 2rem 1.5rem; /* 32px 24px */
+  padding: 2rem 1.5rem;
 
   ul {
     display: flex;
     flex-direction: column;
-    gap: 1.875rem; /* 30px */
+    gap: 1.875rem;
     color: #585858;
-    font-size: 1.125rem; /* 18px */
+    font-size: 1.125rem;
     font-weight: 400;
     letter-spacing: -0.01em;
 
@@ -169,7 +162,6 @@
     url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M20 6L9 17l-5-5' fill='none' stroke='%2369E430' stroke-width='3' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E");
 }
 
-/* декоративный фон (zeus) — тоже адаптивно */
 .frnds-trn::after {
   content: "";
   position: absolute;
@@ -179,8 +171,8 @@
   transform: translate(-50%, -50%);
   margin-left: -42vw;
 
-  width: clamp(28rem, 50vw, 47.875rem); /* 448px → 766px */
-  height: clamp(24rem, 45vw, 40.8125rem); /* 384px → 653px */
+  width: clamp(28rem, 50vw, 47.875rem);
+  height: clamp(24rem, 45vw, 40.8125rem);
 
   background: url("../assets/zeus.png") no-repeat center;
   background-size: contain;
