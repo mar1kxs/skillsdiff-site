@@ -72,7 +72,7 @@
         align-items: center;
 
         img:last-child {
-          width: 1.375rem; /* 22px */
+          width: auto;
         }
       }
     }
