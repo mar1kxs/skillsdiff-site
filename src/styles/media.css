@@ -8,7 +8,7 @@
     visibility: hidden !important;
   }
   nav {
-    padding: 40px 0px;
+    padding: 20px;
   }
   .logo-nav {
     width: 150px;
@@ -58,7 +58,7 @@
     opacity: 0 !important;
   }
   .app-container {
-    padding-top: 0;
+    padding: 0 20px;
   }
   .personal-trainings h3 {
     font-size: 36px;
@@ -205,6 +205,7 @@
       margin-top: 16px !important;
       padding-top: 14px !important;
       padding-bottom: 14px !important;
+      width: 100% !important;
     }
   }
   .other-header img {
