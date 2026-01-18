@@ -11,6 +11,7 @@ import "./App.css";
 import TrainingRules from "./pages/TrainingRules";
 import CoachesGuide from "./pages/CoachesGuide";
 import CoachesRules from "./pages/CoachesRules";
+import "./styles/media.css";
 
 function App() {
   return (

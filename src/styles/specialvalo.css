@@ -79,3 +79,9 @@
     width: clamp(300px, 45vw, 570px);
   }
 }
+
+@media (max-width: 650px) {
+  .special-img {
+    display: none;
+  }
+}
