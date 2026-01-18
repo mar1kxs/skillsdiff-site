@@ -15,7 +15,7 @@
   }
   .dota-hdr,
   .valo-hdr {
-    padding-top: 0;
+    padding-top: 4rem !important;
   }
   .dota-hdr-ul,
   .valo-hdr-ul {
@@ -52,8 +52,9 @@
   }
   .rning-line {
     position: absolute;
-    top: 700px;
+    top: 640px;
     rotate: -3deg;
+    z-index: 1;
   }
   .dota-features,
   .valo-features {

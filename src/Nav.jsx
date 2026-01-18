@@ -143,6 +143,20 @@ const Nav = () => {
             <a href="#">Наши тренеры</a>
           </li>
         </ul>
+        <div className="nav-mobile-games-container">
+          <span className="mobile-game-plate">Игры</span>
+          <ul className="nav-mobile-games">
+            <li>
+              <img src={navValorantBg} alt="Valorant" />
+            </li>
+            <li>
+              <img src={navDotaBg} alt="Dota 2" />
+            </li>
+            <li>
+              <img src={navCsBg} alt="CS2" />
+            </li>
+          </ul>
+        </div>
       </aside>
     </>
   );

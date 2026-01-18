@@ -60,7 +60,7 @@
       background-color: var(--game-panel-bg-color);
       width: max-content;
       height: max-content;
-      border-radius: 0.625rem; /* 10px */
+      border-radius: 0.625rem;
 
       span {
         width: 1.8125rem; /* 29px */
@@ -79,7 +79,7 @@
   }
 }
 
-@media (max-width: 80rem) {
+@media (min-width: 481px) and (max-width: 80rem) {
   .games-list {
     flex-wrap: wrap;
     justify-content: center;
@@ -132,4 +132,38 @@
 
 .games-card:hover .cardbg {
   filter: brightness(0.8);
+}
+
+@media (max-width: 30rem) {
+  /* 480px */
+  .games-list {
+    flex-wrap: nowrap;
+    justify-content: flex-start;
+    overflow-x: auto;
+    overflow-y: visible;
+    -webkit-overflow-scrolling: touch;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+    padding-bottom: 0.5rem;
+  }
+
+  .games-list::-webkit-scrollbar {
+    display: none;
+  }
+
+  .games-list li {
+    flex: 0 0 22.5rem;
+    max-width: 22.5rem;
+    min-width: 22.5rem;
+    scroll-snap-align: start;
+  }
+
+  .games-list li div {
+    gap: 1rem;
+    top: 0rem;
+  }
+
+  .games-card::after {
+    width: 12.5rem;
+  }
 }
