@@ -13,6 +13,10 @@
   .logo-nav {
     width: 150px;
   }
+  .dota-hdr,
+  .valo-hdr {
+    padding-top: 7.6875rem;
+  }
   .dota-hdr-ul,
   .valo-hdr-ul {
     max-width: 310px;
