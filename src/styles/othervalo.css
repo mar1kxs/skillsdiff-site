@@ -2,7 +2,8 @@
   padding: clamp(4rem, 6vw, 7rem) 0;
 
   h3 {
-    font-size: 3rem;
+    font-size: clamp(2rem, 3.2vw, 3rem);
+
     color: var(--text-color2);
     font-weight: 600;
     line-height: 1.15;
@@ -52,6 +53,7 @@
     object-fit: contain;
     pointer-events: none;
     user-select: none;
+    z-index: 0;
   }
 
   .info-container {
@@ -108,6 +110,7 @@
       line-height: 1.05;
       letter-spacing: -0.01em;
       color: #000000;
+      z-index: 1;
 
       padding: 1rem clamp(2rem, 6vw, 6.875rem);
       border-radius: 0.625rem;
@@ -174,8 +177,9 @@
     padding-right: 2rem;
     padding-bottom: 2rem;
   }
-
   .other-header img {
-    display: none;
+    width: 150px;
+    bottom: 65px;
+    right: 20px;
   }
 }

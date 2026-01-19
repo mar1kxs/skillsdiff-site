@@ -16,6 +16,7 @@ const ValorantPage = () => {
       <WithFriendsValo />
       <SpecialValo />
       <OtherValo />
+      <Coaches titlecolor="#FF4350" />
       <Reviews titlecolor="#FF4350" />
       <Faq />
     </>

@@ -1,5 +1,6 @@
 .special-valo {
   padding-top: 60px;
+  padding-bottom: 60px;
 }
 
 .special-container {
@@ -56,6 +57,7 @@
 
   display: flex;
   justify-content: center;
+  color: #000000;
 }
 
 .special-img {

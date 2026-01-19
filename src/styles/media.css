@@ -8,10 +8,11 @@
     visibility: hidden !important;
   }
   nav {
-    padding: 20px;
+    padding: 10px 0;
+    align-items: center;
   }
   .logo-nav {
-    width: 150px;
+    width: 200px;
   }
   .dota-hdr,
   .valo-hdr {
@@ -68,9 +69,7 @@
   .personal-trainings h3 {
     font-size: 36px;
   }
-  .personal-trainings {
-    padding: 0 20px;
-  }
+
   .personal-card-dota-heading,
   .personal-card-valo-heading {
     padding: 20px;
@@ -125,7 +124,7 @@
     padding-bottom: 40px;
   }
   .frnds-trn {
-    padding: 30px 20px;
+    padding: 30px 0px;
   }
   .frnds-trn h3 {
     font-size: 36px;
@@ -213,11 +212,6 @@
       width: 100% !important;
     }
   }
-  .other-header img {
-    width: 150px;
-    bottom: 75px;
-    right: 20px;
-  }
 
   .other-footer {
     font-size: 16px;
@@ -227,7 +221,7 @@
     gap: 30px;
   }
   .coaches {
-    padding: 30px 20px;
+    padding: 30px 0px;
   }
   .tag {
     visibility: hidden !important;
@@ -260,7 +254,7 @@
     height: 245px;
   }
   .faq {
-    padding: 30px 20px;
+    padding: 30px 0px;
   }
   .faq h2 {
     font-size: 36px;
@@ -295,7 +289,7 @@
     }
   }
   footer {
-    padding: 50px 20px;
+    padding: 50px 0px;
   }
   .footer {
     padding: 30px 20px;
@@ -316,6 +310,10 @@
   }
   .footer p {
     font-size: 13px;
+  }
+  .personal-trainings .frnds-trn {
+    padding-left: 0;
+    padding-right: 0;
   }
 }
 

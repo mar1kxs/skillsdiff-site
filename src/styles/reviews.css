@@ -8,7 +8,8 @@
 
 .reviews h2 {
   text-align: center;
-  font-size: 48px;
+  font-size: clamp(2.2rem, 3.2vw, 3rem);
+
   color: var(--text-color2);
   line-height: 100%;
   letter-spacing: -4%;
@@ -193,6 +194,9 @@
 }
 
 @media (max-width: 80rem) {
+  .reviews {
+    padding: 60px 0;
+  }
   .review-card h4 {
     font-size: 22px;
   }
