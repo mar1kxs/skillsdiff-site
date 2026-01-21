@@ -14,7 +14,7 @@
   letter-spacing: -0.04em;
 }
 
-/* full-bleed чтобы обойти app-container (как было у тебя) */
+/* full-bleed */
 .reviews .reviews-container {
   width: 100vw;
   position: relative;
@@ -23,12 +23,11 @@
   padding: 0 24px;
 }
 
-/* авто-лента */
+/* ===== Desktop авто-лента ===== */
 .reviews-auto {
   overflow: hidden;
 }
 
-/* трек из 2 копий, едет влево */
 .reviews-auto .reviews-track {
   display: flex;
   flex-wrap: nowrap;
@@ -41,9 +40,26 @@
   animation: reviews-left 28s linear infinite;
 }
 
-/* пауза при наведении (на мобилке просто не сработает, но не мешает) */
 .reviews-auto:hover .reviews-track {
   animation-play-state: paused;
+}
+
+/* ===== Mobile: ручной скролл + авто сверху ===== */
+.reviews-scroll {
+  overflow-x: auto;
+  overflow-y: hidden;
+  -webkit-overflow-scrolling: touch;
+  scroll-snap-type: x proximity;
+  scrollbar-width: none;
+}
+.reviews-scroll::-webkit-scrollbar {
+  display: none;
+}
+.reviews-scroll .reviews-track {
+  display: flex;
+  flex-wrap: nowrap;
+  width: max-content;
+  will-change: scroll-position;
 }
 
 /* строки */
@@ -76,7 +92,9 @@
   user-select: none;
 
   transition: max-height 350ms ease;
-  will-change: auto; /* важно: НЕ держим всегда will-change на мобилке */
+  will-change: auto;
+
+  scroll-snap-align: start;
 }
 
 .review-card img {
@@ -96,7 +114,6 @@
   word-break: break-word;
 }
 
-/* закрыто: 4 строки */
 .review-card p {
   color: #e7e7e7;
   line-height: 135%;
@@ -112,7 +129,6 @@
   word-break: break-word;
 }
 
-/* открыто: полный текст */
 .review-card.open p {
   display: block;
   -webkit-line-clamp: unset;
@@ -132,7 +148,6 @@
   align-self: flex-start;
 }
 
-/* бесконечный сдвиг: ровно на ширину первой половины */
 @keyframes reviews-left {
   from {
     transform: translate3d(0, 0, 0);
@@ -142,7 +157,7 @@
   }
 }
 
-/* боковое затемнение (fade) */
+/* fade */
 .reviews .reviews-container {
   position: relative;
 }
@@ -209,7 +224,7 @@
   }
 }
 
-/* мобилка: уменьшаем стоимость blur и fade, лента продолжает ехать */
+/* мобилка: чуть облегчаем paint, но автоскролл остаётся */
 @media (hover: none) and (pointer: coarse) {
   .purple1-review,
   .purple2-review {
