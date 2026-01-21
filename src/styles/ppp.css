@@ -1,6 +1,6 @@
 .privacy-policy-page {
   display: flex;
-  padding: 120px 30px;
+  padding: clamp(64px, 8vw, 120px) clamp(16px, 4vw, 30px);
   justify-content: center;
   align-items: center;
   color: var(--text-color2);
@@ -8,43 +8,43 @@
 
 .privacy-policy-page h1 {
   font-weight: 600;
-  font-size: 48px;
+  font-size: clamp(32px, 4vw, 48px);
   line-height: 115%;
-  letter-spacing: -4%;
-  margin-bottom: 60px;
+  letter-spacing: -0.04em;
+  margin-bottom: clamp(32px, 4vw, 60px);
 }
 
 .privacy-policy-page h2 {
-  font-size: 24px;
+  font-size: clamp(20px, 2.4vw, 24px);
   font-weight: 600;
   line-height: 115%;
-  letter-spacing: -2%;
-  margin-bottom: 32px;
+  letter-spacing: -0.02em;
+  margin-bottom: clamp(20px, 3vw, 32px);
 }
 
 .ppp-container {
   display: flex;
   flex-direction: column;
-  gap: 60px;
-  padding: 60px;
-  border-radius: 24px;
+  gap: clamp(32px, 5vw, 60px);
+  padding: clamp(24px, 4vw, 60px);
+  border-radius: clamp(16px, 3vw, 24px);
   background-color: rgba(255, 255, 255, 0.1);
-  width: 1200px;
 }
 
 .ppp-container section {
   display: flex;
   flex-direction: column;
+  gap: clamp(16px, 3vw, 24px);
 }
 
 .ppp-container p {
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   font-weight: 400;
   line-height: 135%;
 }
 
 .ppp-container h3 {
   font-weight: 500;
-  font-size: 20px;
+  font-size: clamp(16px, 2vw, 20px);
   line-height: 135%;
 }

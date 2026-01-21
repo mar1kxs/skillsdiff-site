@@ -82,13 +82,12 @@
   }
 }
 
-@media (max-width: 650px) {
-  .special-img {
-    display: none;
-  }
-}
 @media (max-width: 36rem) {
   /* 576px */
+  .special-img {
+    width: 230px;
+    bottom: 1rem;
+  }
 
   .special-container {
     padding: 1.5rem; /* было 60px */
@@ -96,17 +95,20 @@
 
   .special-content {
     gap: 1.25rem; /* 20px */
+    width: 100%;
   }
 
   .special-content h2 {
-    font-size: 1.75rem; /* ~28px */
+    font-size: 1.5rem; /* ~28px */
     line-height: 1.2;
   }
 
   .special-content p {
     font-size: 0.95rem; /* ~15px */
     line-height: 1.35;
-    width: 100%; /* убираем clamp, чтобы не давил */
+    max-width: clamp(160px, 60vw, 400px);
+    width: 100%;
+    z-index: -1;
   }
 
   .special-price {

@@ -10,19 +10,28 @@ const Reviews = (props) => {
   const cardRefs = useRef({});
 
   const animateOpen = (el) => {
+    // включаем will-change только на время анимации (важно для мобилки)
+    el.style.willChange = "max-height";
     el.style.maxHeight = `${CLOSED_HEIGHT}px`;
 
     requestAnimationFrame(() => {
       el.classList.add("open");
 
-      // меряем после применения стилей open
       requestAnimationFrame(() => {
         el.style.maxHeight = `${el.scrollHeight}px`;
       });
     });
+
+    const onEnd = (e) => {
+      if (e.propertyName !== "max-height") return;
+      el.style.willChange = "auto";
+      el.removeEventListener("transitionend", onEnd);
+    };
+    el.addEventListener("transitionend", onEnd);
   };
 
   const animateClose = (el) => {
+    el.style.willChange = "max-height";
     el.style.maxHeight = `${el.scrollHeight}px`;
 
     requestAnimationFrame(() => {
@@ -32,6 +41,7 @@ const Reviews = (props) => {
     const onEnd = (e) => {
       if (e.propertyName !== "max-height") return;
       el.classList.remove("open");
+      el.style.willChange = "auto";
       el.removeEventListener("transitionend", onEnd);
     };
     el.addEventListener("transitionend", onEnd);
@@ -41,13 +51,11 @@ const Reviews = (props) => {
     const currentOpen = openKey;
     const nextOpen = currentOpen === key ? null : key;
 
-    // закрываем открытую
     if (currentOpen && currentOpen !== key) {
       const prevEl = cardRefs.current[currentOpen];
       if (prevEl) animateClose(prevEl);
     }
 
-    // открываем/закрываем кликнутую
     const el = cardRefs.current[key];
     if (el) {
       if (nextOpen === key) animateOpen(el);
@@ -60,7 +68,7 @@ const Reviews = (props) => {
   const renderRow = (prefix, ariaHidden = false) => (
     <ul className="reviews-row" aria-hidden={ariaHidden}>
       {reviews.map((review, idx) => {
-        const key = `${prefix}-${review.id}-${idx}`; // уникальный ключ
+        const key = `${prefix}-${review.id}-${idx}`;
         const isOpen = openKey === key;
 
         return (
@@ -94,8 +102,9 @@ const Reviews = (props) => {
 
   return (
     <section className="reviews">
-      <span className="purple1-review"></span>
-      <span className="purple2-review"></span>
+      <span className="purple1-review" />
+      <span className="purple2-review" />
+
       <h2>
         Отзывы наших{" "}
         <span

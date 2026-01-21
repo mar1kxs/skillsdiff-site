@@ -1,9 +1,11 @@
 .ty-page {
+  position: relative;
   display: flex;
   justify-content: space-between;
   align-items: center;
   padding: 0 160px;
-  height: 100vh;
+  min-height: 100vh;
+  overflow: hidden;
 }
 
 .ty-page h1 {
@@ -42,7 +44,7 @@
   font-weight: 700;
 }
 
-.ty-page img {
+.ty-hero {
   width: clamp(215px, 50vw, 593px);
   aspect-ratio: 593/315;
   user-select: none;
@@ -62,4 +64,24 @@
   cursor: pointer;
   background-color: var(--text-color2);
   color: #000000;
+}
+
+.ty-bg {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
+  width: 1400px;
+  object-fit: cover;
+  z-index: 0;
+  pointer-events: none;
+  user-select: none;
+}
+
+/* Контент поверх */
+.ty-content,
+.ty-page > img:not(.ty-bg) {
+  position: relative;
+  z-index: 2;
 }

@@ -79,7 +79,9 @@ const PersonalValo = () => {
             <p className="p-first">
               Самая популярная программа <br /> по цене и качествам
             </p>
-            <p className="p-last">16 тренировок</p>
+            <p className="p-last" style={{ color: "#ff2a38" }}>
+              16 тренировок
+            </p>
             <span className="span-first">14400 ₽</span>
             <span className="span-last">10 800 ₽</span>
             <button>Оплатить</button>

@@ -46,3 +46,13 @@
   padding: 16px;
   border-radius: 10px;
 }
+
+.notfound-bg {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 1460px;
+  object-fit: cover; /* или contain — см. ниже */
+  z-index: -1;
+}

@@ -9,13 +9,12 @@
 .reviews h2 {
   text-align: center;
   font-size: clamp(2.2rem, 3.2vw, 3rem);
-
   color: var(--text-color2);
   line-height: 100%;
-  letter-spacing: -4%;
+  letter-spacing: -0.04em;
 }
 
-/* full-bleed чтобы обойти app-container */
+/* full-bleed чтобы обойти app-container (как было у тебя) */
 .reviews .reviews-container {
   width: 100vw;
   position: relative;
@@ -34,11 +33,15 @@
   display: flex;
   flex-wrap: nowrap;
   width: max-content;
+
   will-change: transform;
+  backface-visibility: hidden;
+  transform: translate3d(0, 0, 0);
+
   animation: reviews-left 28s linear infinite;
 }
 
-/* пауза при наведении */
+/* пауза при наведении (на мобилке просто не сработает, но не мешает) */
 .reviews-auto:hover .reviews-track {
   animation-play-state: paused;
 }
@@ -73,7 +76,7 @@
   user-select: none;
 
   transition: max-height 350ms ease;
-  will-change: max-height;
+  will-change: auto; /* важно: НЕ держим всегда will-change на мобилке */
 }
 
 .review-card img {
@@ -85,7 +88,7 @@
 .review-card h4 {
   color: var(--text-color2);
   line-height: 135%;
-  letter-spacing: -2%;
+  letter-spacing: -0.02em;
   font-size: 24px;
   margin-top: 16px;
 
@@ -121,7 +124,7 @@
   font-weight: 500;
   font-size: 20px;
   line-height: 115%;
-  letter-spacing: -1%;
+  letter-spacing: -0.01em;
   margin-top: 24px;
 
   cursor: pointer;
@@ -132,15 +135,16 @@
 /* бесконечный сдвиг: ровно на ширину первой половины */
 @keyframes reviews-left {
   from {
-    transform: translateX(0);
+    transform: translate3d(0, 0, 0);
   }
   to {
-    transform: translateX(-50%);
+    transform: translate3d(-50%, 0, 0);
   }
 }
+
 /* боковое затемнение (fade) */
 .reviews .reviews-container {
-  position: relative; /* нужно для ::before/::after */
+  position: relative;
 }
 
 .reviews .reviews-container::before,
@@ -149,7 +153,7 @@
   position: absolute;
   top: 0;
   bottom: 0;
-  width: 120px; /* ширина затемнения */
+  width: 120px;
   z-index: 5;
   pointer-events: none;
 }
@@ -164,15 +168,14 @@
   background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }
 
+/* glow */
 .purple1-review {
   position: absolute;
   width: 230px;
   height: 230px;
   top: 150px;
   border-radius: 50%;
-
   background: rgba(123, 108, 231, 0.6);
-
   filter: blur(180px);
   pointer-events: none;
   z-index: -1;
@@ -185,9 +188,7 @@
   top: 200px;
   right: 0;
   border-radius: 50%;
-
   background: rgba(123, 108, 231, 0.6);
-
   filter: blur(180px);
   pointer-events: none;
   z-index: -1;
@@ -205,5 +206,18 @@
   }
   .more-reviews {
     font-size: 18px;
+  }
+}
+
+/* мобилка: уменьшаем стоимость blur и fade, лента продолжает ехать */
+@media (hover: none) and (pointer: coarse) {
+  .purple1-review,
+  .purple2-review {
+    filter: blur(120px);
+  }
+
+  .reviews .reviews-container::before,
+  .reviews .reviews-container::after {
+    width: 64px;
   }
 }
