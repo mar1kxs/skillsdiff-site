@@ -1,5 +1,4 @@
-/* DOTA PAGE PHONE */
-@media (max-width: 480px) {
+@media (max-width: 749px) {
   .nav-links {
     display: none !important;
   }
@@ -51,12 +50,7 @@
   .valo-hdr button {
     font-size: 16px;
   }
-  .rning-line {
-    position: absolute;
-    top: 640px;
-    rotate: -3deg;
-    z-index: 1;
-  }
+
   .dota-features,
   .valo-features {
     display: none !important;
@@ -314,6 +308,9 @@
   .personal-trainings .frnds-trn {
     padding-left: 0;
     padding-right: 0;
+  }
+  .coaches-nav {
+    display: none;
   }
 }
 

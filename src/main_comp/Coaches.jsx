@@ -117,7 +117,7 @@ const Coaches = (props) => {
                           </span>
                           {part}
                         </span>
-                      )
+                      ),
                     )}
                   </p>
 
@@ -135,7 +135,7 @@ const Coaches = (props) => {
                             </span>
                             {part}
                           </span>
-                        )
+                        ),
                       )}
                   </p>
                 </div>

@@ -94,11 +94,13 @@
 }
 
 .coaches-nav--left {
-  left: -4.375rem;
+  left: -6rem;
+  margin-left: 3.7rem;
 }
 
 .coaches-nav--right {
-  right: -4.375rem;
+  right: -6rem;
+  margin-right: 3.7rem;
 }
 
 /* Карточка */

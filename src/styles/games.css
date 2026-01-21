@@ -145,6 +145,10 @@
     scroll-snap-type: x mandatory;
     scrollbar-width: none;
     padding-bottom: 0.5rem;
+    position: absolute;
+  }
+  .games-parent {
+    height: 400px;
   }
 
   .games-list::-webkit-scrollbar {
