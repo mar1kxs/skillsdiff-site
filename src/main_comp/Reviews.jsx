@@ -7,6 +7,8 @@ const CLOSED_HEIGHT = 298;
 
 const Reviews = (props) => {
   const [openKey, setOpenKey] = useState(null);
+  const [modalReview, setModalReview] = useState(null);
+
   const cardRefs = useRef({});
   const scrollerRef = useRef(null);
 
@@ -15,21 +17,25 @@ const Reviews = (props) => {
     return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
   }, []);
 
-  // держим актуальное openKey в ref, чтобы не пересоздавать loop
   const openKeyRef = useRef(null);
   useEffect(() => {
     openKeyRef.current = openKey;
   }, [openKey]);
 
-  const openInstant = (el) => {
-    el.classList.add("open");
-    el.style.maxHeight = "none"; // ключ: никакого scrollHeight/transition
+  const lockBody = (locked) => {
+    if (typeof document === "undefined") return;
+    const body = document.body;
+    if (!body) return;
+    body.style.overflow = locked ? "hidden" : "";
+    body.style.touchAction = locked ? "none" : "";
   };
 
-  const closeInstant = (el) => {
-    el.classList.remove("open");
-    el.style.maxHeight = `${CLOSED_HEIGHT}px`;
-  };
+  useEffect(() => {
+    if (!isMobile) return;
+    const locked = !!modalReview;
+    lockBody(locked);
+    return () => lockBody(false);
+  }, [isMobile, modalReview]);
 
   const animateOpen = (el) => {
     el.style.willChange = "max-height";
@@ -67,34 +73,24 @@ const Reviews = (props) => {
     el.addEventListener("transitionend", onEnd);
   };
 
-  const toggle = (key) => {
+  const toggleDesktop = (key) => {
     const currentOpen = openKey;
     const nextOpen = currentOpen === key ? null : key;
 
-    // закрываем предыдущую
     if (currentOpen && currentOpen !== key) {
       const prevEl = cardRefs.current[currentOpen];
-      if (prevEl) {
-        if (isMobile) closeInstant(prevEl);
-        else animateClose(prevEl);
-      }
+      if (prevEl) animateClose(prevEl);
     }
 
     const el = cardRefs.current[key];
     if (el) {
-      if (nextOpen === key) {
-        if (isMobile) openInstant(el);
-        else animateOpen(el);
-      } else {
-        if (isMobile) closeInstant(el);
-        else animateClose(el);
-      }
+      if (nextOpen === key) animateOpen(el);
+      else animateClose(el);
     }
 
     setOpenKey(nextOpen);
   };
 
-  // === Mobile auto-scroll ===
   useEffect(() => {
     if (!isMobile) return;
 
@@ -112,10 +108,10 @@ const Reviews = (props) => {
       const dt = (t - last) / 1000;
       last = t;
 
-      // КЛЮЧ: если карточка открыта — НЕ скроллим вообще
+      const pausedByModal = !!modalReview;
       const pausedByOpenCard = !!openKeyRef.current;
 
-      if (!pausedByTouch && !pausedByOpenCard) {
+      if (!pausedByTouch && !pausedByModal && !pausedByOpenCard) {
         el.scrollLeft += speedPxPerSec * dt;
 
         const max = el.scrollWidth - el.clientWidth;
@@ -147,7 +143,7 @@ const Reviews = (props) => {
       el.removeEventListener("touchmove", pauseAuto);
       el.removeEventListener("scroll", pauseAuto);
     };
-  }, [isMobile]);
+  }, [isMobile, modalReview]);
 
   const renderRow = (prefix, ariaHidden = false) => (
     <ul className="reviews-row" aria-hidden={ariaHidden}>
@@ -162,8 +158,11 @@ const Reviews = (props) => {
             ref={(node) => {
               if (node) cardRefs.current[key] = node;
             }}
-            onClick={() => toggle(key)}
-            style={{ maxHeight: `${CLOSED_HEIGHT}px` }}
+            onClick={() => {
+              if (isMobile) setModalReview(review);
+              else toggleDesktop(key);
+            }}
+            style={!isMobile ? { maxHeight: `${CLOSED_HEIGHT}px` } : undefined}
           >
             <img src={stars} alt="stars icon" />
             <h4>{review.user}</h4>
@@ -173,10 +172,15 @@ const Reviews = (props) => {
               className="more-reviews"
               onClick={(e) => {
                 e.stopPropagation();
-                toggle(key);
+                if (isMobile) setModalReview(review);
+                else toggleDesktop(key);
               }}
             >
-              {isOpen ? "Свернуть ←" : "Читать далее →"}
+              {isMobile
+                ? "Читать далее →"
+                : isOpen
+                  ? "Свернуть ←"
+                  : "Читать далее →"}
             </span>
           </li>
         );
@@ -207,6 +211,31 @@ const Reviews = (props) => {
           {!isMobile && renderRow("b", true)}
         </div>
       </div>
+
+      {isMobile && modalReview && (
+        <div
+          className="review-modal"
+          role="dialog"
+          aria-modal="true"
+          onClick={() => setModalReview(null)}
+        >
+          <div
+            className="review-modal__panel"
+            onClick={(e) => e.stopPropagation()}
+          >
+            <img src={stars} alt="stars icon" />
+            <h4>{modalReview.user}</h4>
+            <p>{modalReview.text}</p>
+
+            <button
+              className="review-modal__close"
+              onClick={() => setModalReview(null)}
+            >
+              Закрыть
+            </button>
+          </div>
+        </div>
+      )}
     </section>
   );
 };

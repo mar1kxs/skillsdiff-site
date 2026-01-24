@@ -4,6 +4,7 @@
   padding: 112px 0;
   gap: 50px;
   position: relative;
+  isolation: isolate;
 }
 
 .reviews h2 {
@@ -95,6 +96,8 @@
   will-change: auto;
 
   scroll-snap-align: start;
+
+  transform: translateZ(0);
 }
 
 .review-card img {
@@ -194,6 +197,9 @@
   filter: blur(180px);
   pointer-events: none;
   z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
+  contain: paint;
 }
 
 .purple2-review {
@@ -207,6 +213,9 @@
   filter: blur(180px);
   pointer-events: none;
   z-index: -1;
+  transform: translateZ(0);
+  will-change: transform;
+  contain: paint;
 }
 
 @media (max-width: 80rem) {
@@ -224,7 +233,7 @@
   }
 }
 
-/* мобилка: чуть облегчаем paint, но автоскролл остаётся */
+/* мобилка: главное — НЕ менять layout секции при "читать далее" */
 @media (hover: none) and (pointer: coarse) {
   .purple1-review,
   .purple2-review {
@@ -235,15 +244,80 @@
   .reviews .reviews-container::after {
     width: 64px;
   }
+
+  .review-card {
+    transition: none !important;
+    contain: content;
+  }
+
+  .review-card p {
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
+
+  .review-card.open p {
+    display: -webkit-box;
+    -webkit-line-clamp: 4;
+    overflow: hidden;
+  }
 }
 
-@media (hover: none) and (pointer: coarse) {
-  .review-card {
-    transition: none !important; /* ключ: никаких анимаций max-height на мобилке */
-  }
+/* modal */
+.review-modal {
+  position: fixed;
+  inset: 0;
+  z-index: 9999;
+  background: rgba(0, 0, 0, 0.55);
+  display: flex;
+  align-items: flex-end;
+  justify-content: center;
+  padding: 16px;
+}
 
-  /* помогает изолировать перерисовку карточек */
-  .review-card {
-    contain: layout paint;
-  }
+.review-modal__panel {
+  width: 100%;
+  max-width: 520px;
+  max-height: 80vh;
+  overflow: auto;
+  background: #1f1f1f;
+  border-radius: 18px;
+  padding: 18px;
+  transform: translateZ(0);
+}
+
+.review-modal__panel img {
+  width: 144px;
+  pointer-events: none;
+  user-select: none;
+}
+
+.review-modal__panel h4 {
+  color: var(--text-color2);
+  line-height: 135%;
+  letter-spacing: -0.02em;
+  font-size: 22px;
+  margin-top: 16px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.review-modal__panel p {
+  color: #e7e7e7;
+  line-height: 135%;
+  font-size: 15px;
+  margin-top: 16px;
+  overflow-wrap: anywhere;
+  word-break: break-word;
+}
+
+.review-modal__close {
+  margin-top: 14px;
+  width: 100%;
+  border: 0;
+  border-radius: 12px;
+  padding: 12px 14px;
+  background: #f1d927;
+  color: #111;
+  font-weight: 600;
+  font-size: 16px;
 }
