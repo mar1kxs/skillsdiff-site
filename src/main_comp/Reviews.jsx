@@ -1,3 +1,4 @@
+// Reviews.jsx
 import React, { useEffect, useMemo, useRef, useState } from "react";
 import { createPortal } from "react-dom";
 import "../styles/reviews.css";
@@ -18,11 +19,6 @@ const Reviews = (props) => {
     return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
   }, []);
 
-  const openKeyRef = useRef(null);
-  useEffect(() => {
-    openKeyRef.current = openKey;
-  }, [openKey]);
-
   const lockBody = (locked) => {
     if (typeof document === "undefined") return;
     const body = document.body;
@@ -33,8 +29,7 @@ const Reviews = (props) => {
 
   useEffect(() => {
     if (!isMobile) return;
-    const locked = !!modalReview;
-    lockBody(locked);
+    lockBody(!!modalReview);
     return () => lockBody(false);
   }, [isMobile, modalReview]);
 
@@ -92,6 +87,7 @@ const Reviews = (props) => {
     setOpenKey(nextOpen);
   };
 
+  // Mobile: бесконечный скролл + авто-скролл поверх ручного
   useEffect(() => {
     if (!isMobile) return;
 
@@ -105,18 +101,24 @@ const Reviews = (props) => {
     const speedPxPerSec = 18;
     let last = performance.now();
 
+    const getHalf = () => el.scrollWidth / 2;
+
+    const wrapIfNeeded = () => {
+      const half = getHalf();
+      if (!half || !Number.isFinite(half)) return;
+
+      if (el.scrollLeft >= half) el.scrollLeft -= half;
+      if (el.scrollLeft < 0) el.scrollLeft += half;
+    };
+
     const loop = (t) => {
       const dt = (t - last) / 1000;
       last = t;
 
       const pausedByModal = !!modalReview;
-      const pausedByOpenCard = !!openKeyRef.current;
-
-      if (!pausedByTouch && !pausedByModal && !pausedByOpenCard) {
+      if (!pausedByTouch && !pausedByModal) {
         el.scrollLeft += speedPxPerSec * dt;
-
-        const max = el.scrollWidth - el.clientWidth;
-        if (max > 0 && el.scrollLeft >= max - 2) el.scrollLeft = 0;
+        wrapIfNeeded();
       }
 
       rafId = requestAnimationFrame(loop);
@@ -131,10 +133,16 @@ const Reviews = (props) => {
       }, 1200);
     };
 
+    const onScroll = () => {
+      wrapIfNeeded();
+      pauseAuto();
+    };
+
     el.addEventListener("touchstart", pauseAuto, { passive: true });
     el.addEventListener("touchmove", pauseAuto, { passive: true });
-    el.addEventListener("scroll", pauseAuto, { passive: true });
+    el.addEventListener("scroll", onScroll, { passive: true });
 
+    el.scrollLeft = 0;
     rafId = requestAnimationFrame(loop);
 
     return () => {
@@ -142,7 +150,7 @@ const Reviews = (props) => {
       clearTimeout(pauseTimer);
       el.removeEventListener("touchstart", pauseAuto);
       el.removeEventListener("touchmove", pauseAuto);
-      el.removeEventListener("scroll", pauseAuto);
+      el.removeEventListener("scroll", onScroll);
     };
   }, [isMobile, modalReview]);
 
@@ -209,7 +217,8 @@ const Reviews = (props) => {
       >
         <div className="reviews-track">
           {renderRow("a")}
-          {!isMobile && renderRow("b", true)}
+          {/* На мобилке тоже дублируем ряд для бесконечного скролла */}
+          {renderRow("b", true)}
         </div>
       </div>
 
