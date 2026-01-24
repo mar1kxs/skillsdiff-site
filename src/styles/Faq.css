@@ -1,6 +1,6 @@
 .faq {
   padding: 3.75rem 0;
-
+  z-index: 0;
   h2 {
     font-size: 3rem;
     letter-spacing: -0.03em;
