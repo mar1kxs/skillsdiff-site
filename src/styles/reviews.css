@@ -336,3 +336,10 @@
   font-weight: 600;
   font-size: 16px;
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .reviews .reviews-container::before,
+  .reviews .reviews-container::after {
+    display: none;
+  }
+}
