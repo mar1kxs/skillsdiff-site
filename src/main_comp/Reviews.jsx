@@ -1,4 +1,5 @@
 import React, { useEffect, useMemo, useRef, useState } from "react";
+import { createPortal } from "react-dom";
 import "../styles/reviews.css";
 import reviews from "../objects/reviews.js";
 import stars from "../assets/5stars.svg";
@@ -212,30 +213,33 @@ const Reviews = (props) => {
         </div>
       </div>
 
-      {isMobile && modalReview && (
-        <div
-          className="review-modal"
-          role="dialog"
-          aria-modal="true"
-          onClick={() => setModalReview(null)}
-        >
+      {isMobile &&
+        modalReview &&
+        createPortal(
           <div
-            className="review-modal__panel"
-            onClick={(e) => e.stopPropagation()}
+            className="review-modal"
+            role="dialog"
+            aria-modal="true"
+            onClick={() => setModalReview(null)}
           >
-            <img src={stars} alt="stars icon" />
-            <h4>{modalReview.user}</h4>
-            <p>{modalReview.text}</p>
-
-            <button
-              className="review-modal__close"
-              onClick={() => setModalReview(null)}
+            <div
+              className="review-modal__panel"
+              onClick={(e) => e.stopPropagation()}
             >
-              Закрыть
-            </button>
-          </div>
-        </div>
-      )}
+              <img src={stars} alt="stars icon" />
+              <h4>{modalReview.user}</h4>
+              <p>{modalReview.text}</p>
+
+              <button
+                className="review-modal__close"
+                onClick={() => setModalReview(null)}
+              >
+                Закрыть
+              </button>
+            </div>
+          </div>,
+          document.body,
+        )}
     </section>
   );
 };
