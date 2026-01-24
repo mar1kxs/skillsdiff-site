@@ -87,7 +87,7 @@ const Reviews = (props) => {
     setOpenKey(nextOpen);
   };
 
-  // Mobile: бесконечный скролл + авто-скролл поверх ручного
+  // Mobile: ручной скролл + бесконечный wrap + авто поверх ручного
   useEffect(() => {
     if (!isMobile) return;
 
@@ -199,9 +199,6 @@ const Reviews = (props) => {
 
   return (
     <section className="reviews">
-      <span className="purple1-review" />
-      <span className="purple2-review" />
-
       <h2>
         Отзывы наших{" "}
         <span
@@ -216,8 +213,11 @@ const Reviews = (props) => {
         ref={isMobile ? scrollerRef : null}
       >
         <div className="reviews-track">
+          {/* glow теперь внутри track, чтобы “не прилипал” к первому элементу */}
+          <span className="purple1-review" />
+          <span className="purple2-review" />
+
           {renderRow("a")}
-          {/* На мобилке тоже дублируем ряд для бесконечного скролла */}
           {renderRow("b", true)}
         </div>
       </div>

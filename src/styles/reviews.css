@@ -64,6 +64,11 @@
   will-change: scroll-position;
 }
 
+/* track: нужен relative для glow */
+.reviews-track {
+  position: relative;
+}
+
 /* строки */
 .reviews-row {
   display: flex;
@@ -187,12 +192,13 @@
   background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }
 
-/* glow */
+/* glow (как было по виду) */
 .purple1-review {
   position: absolute;
   width: 230px;
   height: 230px;
   top: 150px;
+  left: 0;
   border-radius: 50%;
   background: rgba(123, 108, 231, 0.6);
   filter: blur(180px);
@@ -234,8 +240,13 @@
   }
 }
 
-/* мобилка: не меняем layout секции, + убираем лагучий blur и делаем лёгкий glow */
+/* мобилка: не меняем layout секции при "читать далее" */
 @media (hover: none) and (pointer: coarse) {
+  .purple1-review,
+  .purple2-review {
+    filter: blur(120px);
+  }
+
   .reviews .reviews-container::before,
   .reviews .reviews-container::after {
     width: 64px;
@@ -255,27 +266,6 @@
     display: -webkit-box;
     -webkit-line-clamp: 4;
     overflow: hidden;
-  }
-
-  /* ВАЖНО: blur на мобилке лагает — заменяем на radial-gradient */
-  .purple1-review,
-  .purple2-review {
-    filter: none !important;
-    background: radial-gradient(
-      circle,
-      rgba(123, 108, 231, 0.55) 0%,
-      rgba(123, 108, 231, 0) 70%
-    );
-  }
-
-  .purple1-review {
-    width: 320px;
-    height: 320px;
-  }
-
-  .purple2-review {
-    width: 560px;
-    height: 560px;
   }
 }
 
