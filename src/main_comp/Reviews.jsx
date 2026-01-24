@@ -10,11 +10,26 @@ const Reviews = (props) => {
   const cardRefs = useRef({});
   const scrollerRef = useRef(null);
 
-  // определяем мобилку по медиа (тач + нет ховера)
   const isMobile = useMemo(() => {
     if (typeof window === "undefined") return false;
     return window.matchMedia("(hover: none) and (pointer: coarse)").matches;
   }, []);
+
+  // держим актуальное openKey в ref, чтобы не пересоздавать loop
+  const openKeyRef = useRef(null);
+  useEffect(() => {
+    openKeyRef.current = openKey;
+  }, [openKey]);
+
+  const openInstant = (el) => {
+    el.classList.add("open");
+    el.style.maxHeight = "none"; // ключ: никакого scrollHeight/transition
+  };
+
+  const closeInstant = (el) => {
+    el.classList.remove("open");
+    el.style.maxHeight = `${CLOSED_HEIGHT}px`;
+  };
 
   const animateOpen = (el) => {
     el.style.willChange = "max-height";
@@ -56,21 +71,30 @@ const Reviews = (props) => {
     const currentOpen = openKey;
     const nextOpen = currentOpen === key ? null : key;
 
+    // закрываем предыдущую
     if (currentOpen && currentOpen !== key) {
       const prevEl = cardRefs.current[currentOpen];
-      if (prevEl) animateClose(prevEl);
+      if (prevEl) {
+        if (isMobile) closeInstant(prevEl);
+        else animateClose(prevEl);
+      }
     }
 
     const el = cardRefs.current[key];
     if (el) {
-      if (nextOpen === key) animateOpen(el);
-      else animateClose(el);
+      if (nextOpen === key) {
+        if (isMobile) openInstant(el);
+        else animateOpen(el);
+      } else {
+        if (isMobile) closeInstant(el);
+        else animateClose(el);
+      }
     }
 
     setOpenKey(nextOpen);
   };
 
-  // === Mobile auto-scroll поверх ручного скролла ===
+  // === Mobile auto-scroll ===
   useEffect(() => {
     if (!isMobile) return;
 
@@ -78,20 +102,22 @@ const Reviews = (props) => {
     if (!el) return;
 
     let rafId = 0;
-    let paused = false;
+    let pausedByTouch = false;
     let pauseTimer = 0;
 
-    const speedPxPerSec = 18; // скорость автопрокрутки (настрой)
+    const speedPxPerSec = 18;
     let last = performance.now();
 
     const loop = (t) => {
       const dt = (t - last) / 1000;
       last = t;
 
-      if (!paused) {
+      // КЛЮЧ: если карточка открыта — НЕ скроллим вообще
+      const pausedByOpenCard = !!openKeyRef.current;
+
+      if (!pausedByTouch && !pausedByOpenCard) {
         el.scrollLeft += speedPxPerSec * dt;
 
-        // бесконечность: когда дошли до конца — прыгаем к началу
         const max = el.scrollWidth - el.clientWidth;
         if (max > 0 && el.scrollLeft >= max - 2) el.scrollLeft = 0;
       }
@@ -100,15 +126,14 @@ const Reviews = (props) => {
     };
 
     const pauseAuto = () => {
-      paused = true;
+      pausedByTouch = true;
       clearTimeout(pauseTimer);
       pauseTimer = window.setTimeout(() => {
-        paused = false;
+        pausedByTouch = false;
         last = performance.now();
       }, 1200);
     };
 
-    // пауза при взаимодействии
     el.addEventListener("touchstart", pauseAuto, { passive: true });
     el.addEventListener("touchmove", pauseAuto, { passive: true });
     el.addEventListener("scroll", pauseAuto, { passive: true });
@@ -173,7 +198,6 @@ const Reviews = (props) => {
         </span>
       </h2>
 
-      {/* Desktop: лента. Mobile: скролл контейнер */}
       <div
         className={`reviews-container ${isMobile ? "reviews-scroll" : "reviews-auto"}`}
         ref={isMobile ? scrollerRef : null}

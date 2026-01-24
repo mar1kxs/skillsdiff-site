@@ -236,3 +236,14 @@
     width: 64px;
   }
 }
+
+@media (hover: none) and (pointer: coarse) {
+  .review-card {
+    transition: none !important; /* ключ: никаких анимаций max-height на мобилке */
+  }
+
+  /* помогает изолировать перерисовку карточек */
+  .review-card {
+    contain: layout paint;
+  }
+}
