@@ -64,7 +64,7 @@
   will-change: scroll-position;
 }
 
-/* track: нужен relative для glow */
+/* track: relative для glow */
 .reviews-track {
   position: relative;
 }
@@ -192,13 +192,12 @@
   background: linear-gradient(to left, rgba(0, 0, 0, 0.55), rgba(0, 0, 0, 0));
 }
 
-/* glow (как было по виду) */
+/* glow (цветные элементы сзади — как было) */
 .purple1-review {
   position: absolute;
   width: 230px;
   height: 230px;
   top: 150px;
-  left: 0;
   border-radius: 50%;
   background: rgba(123, 108, 231, 0.6);
   filter: blur(180px);
@@ -240,7 +239,9 @@
   }
 }
 
-/* мобилка: не меняем layout секции при "читать далее" */
+/* мобилка: 1) не меняем layout при "читать далее"
+   2) первый элемент не попадает под fade (это то самое затемнение на скрине)
+*/
 @media (hover: none) and (pointer: coarse) {
   .purple1-review,
   .purple2-review {
@@ -250,6 +251,16 @@
   .reviews .reviews-container::before,
   .reviews .reviews-container::after {
     width: 64px;
+  }
+
+  /* чтобы первый элемент не был постоянно под затемнением слева */
+  .reviews .reviews-container {
+    padding-left: calc(24px + 64px);
+    padding-right: calc(24px + 64px);
+  }
+
+  .reviews-row {
+    padding-right: 0;
   }
 
   .review-card {
