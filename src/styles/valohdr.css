@@ -64,6 +64,7 @@
   color: var(--text-color2);
   font-weight: 600;
   line-height: 1.05;
+  text-wrap-mode: nowrap;
   letter-spacing: -0.02em;
   padding: 0.625rem 0.75rem;
   font-size: 0.875rem;

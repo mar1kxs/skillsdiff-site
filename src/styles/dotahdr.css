@@ -62,6 +62,7 @@
   border: 1px solid #ff6c32;
   border-radius: 0.375rem;
   color: var(--text-color2);
+  text-wrap-mode: nowrap;
   font-weight: 600;
   line-height: 1.05;
   letter-spacing: -0.02em;

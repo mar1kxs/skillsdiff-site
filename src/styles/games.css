@@ -109,7 +109,7 @@
 }
 
 .valorantcard::after {
-  background-image: url("./src/assets/valoTitle.svg");
+  background-image: url("/assets/valoTitle.svg");
 }
 
 .games-card::after {
@@ -127,7 +127,7 @@
 }
 
 .dotacard::after {
-  background-image: url("./src/assets/DotaTitle.svg");
+  background-image: url("/assets/DotaTitle.svg");
 }
 
 .games-card:hover .cardbg {
