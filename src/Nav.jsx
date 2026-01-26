@@ -94,7 +94,7 @@ const Nav = () => {
           </li>
           <li>
             <img src={telegram} alt="" />
-            <a href="#">Телеграм</a>
+            <a href="https://t.me/skillsdiff">Телеграм</a>
           </li>
           <li>
             <img src={smile} alt="" />
@@ -146,10 +146,16 @@ const Nav = () => {
         <div className="nav-mobile-games-container">
           <span className="mobile-game-plate">Игры</span>
           <ul className="nav-mobile-games">
-            <li>
+            <li
+              onClick={() => navigate("/valorant")}
+              className="nav-mobile-game-card valorantmobile"
+            >
               <img src={navValorantBg} alt="Valorant" />
             </li>
-            <li>
+            <li
+              onClick={() => navigate("/dota2")}
+              className="nav-mobile-game-card dotamobile"
+            >
               <img src={navDotaBg} alt="Dota 2" />
             </li>
             <li>

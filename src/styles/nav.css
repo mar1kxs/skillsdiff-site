@@ -401,3 +401,29 @@ nav {
   flex-direction: column;
   gap: 1rem;
 }
+
+.nav-mobile-game-card {
+  position: relative;
+}
+
+.valorantmobile::after {
+  background-image: url("/assets/valoTitle.svg");
+}
+
+.dotamobile::after {
+  background-image: url("/assets/DotaTitle.svg");
+}
+
+.nav-mobile-game-card::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: 10px;
+  z-index: 999;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  width: 7rem;
+  aspect-ratio: 3 / 1;
+}

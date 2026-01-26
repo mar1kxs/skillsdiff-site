@@ -40,17 +40,26 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" aria-disabled="true">
+                <a
+                  href="https://www.tiktok.com/@skillsdiff"
+                  aria-disabled="true"
+                >
                   TikTok
                 </a>
               </li>
               <li>
-                <a href="#" aria-disabled="true">
+                <a
+                  href="https://www.youtube.com/@SKILLSDIFF_GAME"
+                  aria-disabled="true"
+                >
                   YouTube
                 </a>
               </li>
               <li>
-                <a href="#" aria-disabled="true">
+                <a
+                  href="https://www.twitch.tv/skills__diff"
+                  aria-disabled="true"
+                >
                   Twitch
                 </a>
               </li>
@@ -85,7 +94,7 @@ const Footer = () => {
                 </a>
               </li>
               <li>
-                <a href="#" aria-disabled="true">
+                <a href="https://t.me/skillsdiff" aria-disabled="true">
                   Онлайн чат
                 </a>
               </li>
