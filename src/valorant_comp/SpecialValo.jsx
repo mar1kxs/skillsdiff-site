@@ -19,7 +19,7 @@ const SpecialValo = () => {
             Разбор твоей демки, наглядное обучение от первого лица и оптимизация
             ПК — всё, чтобы твой аим был как у легенды Valorant.
           </p>
-          <span className="special-price">1 700 грн</span>
+          <span className="special-price">1 700 ₴</span>
           <button>Оплатить</button>
         </div>
         <img className="special-img" src={dagger} alt="DaGG3r photo" />

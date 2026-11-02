@@ -17,8 +17,8 @@ const OtherDota = () => {
                 <span style={{ color: "#FF6C32" }}>Анализ игры</span> в Dota 2
               </h4>
               <p>Глубокий разбор твоей игры с тренером</p>
-              <span className="span-first">1 100 грн</span>
-              <span className="span-last">900 грн</span>
+              <span className="span-first">1 100 ₴</span>
+              <span className="span-last">900 ₴</span>
               <button className="other-btn">Оплатить</button>
             </div>
             <img src={zombie} alt="zombie icon" />
@@ -46,8 +46,8 @@ const OtherDota = () => {
                 <span style={{ color: "#FF6C32" }}>Party-игры</span> с тренером
               </h4>
               <p>Получайте анализ в реальном времени</p>
-              <span className="span-first">2 250 грн</span>
-              <span className="span-last">1 800 грн </span>
+              <span className="span-first">2 250 ₴</span>
+              <span className="span-last">1 800 ₴ </span>
               <button className="other-btn">Оплатить</button>
             </div>
             <img src={invoker} alt="invoker icon" />

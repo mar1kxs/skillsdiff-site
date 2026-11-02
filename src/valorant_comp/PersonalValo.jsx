@@ -17,8 +17,8 @@ const PersonalValo = () => {
               познакомиться с программой 
             </p>
             <p className="p-last">1 тренировка</p>
-            <span className="span-first">500 грн</span>
-            <span className="span-last">450 грн</span>
+            <span className="span-first">500 ₴</span>
+            <span className="span-last">450 ₴</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-valo-footer">
@@ -38,8 +38,8 @@ const PersonalValo = () => {
               Пакет “Start” научит тебя <br /> базовым навыкам игры
             </p>
             <p className="p-last">4 тренировки</p>
-            <span className="span-first">2 000 грн</span>
-            <span className="span-last">1 750 грн</span>
+            <span className="span-first">2 000 ₴</span>
+            <span className="span-last">1 750 ₴</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-valo-footer">
@@ -59,8 +59,8 @@ const PersonalValo = () => {
               Самая популярная программа <br /> по цене и качествам
             </p>
             <p className="p-last">8 тренировок</p>
-            <span className="span-first">4 050 грн</span>
-            <span className="span-last">3 250 грн</span>
+            <span className="span-first">4 050 ₴</span>
+            <span className="span-last">3 250 ₴</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-valo-footer">
@@ -82,8 +82,8 @@ const PersonalValo = () => {
             <p className="p-last" style={{ color: "#ff2a38" }}>
               16 тренировок
             </p>
-            <span className="span-first">8 100 грн</span>
-            <span className="span-last">6 050 грн</span>
+            <span className="span-first">8 100 ₴</span>
+            <span className="span-last">6 050 ₴</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-valo-footer">
