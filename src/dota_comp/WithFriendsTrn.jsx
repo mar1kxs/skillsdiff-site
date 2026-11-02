@@ -12,8 +12,8 @@ const WithFriendsTrn = () => {
           <div className="frnds-card-header">
             <h4>2 человека</h4>
             <p>1 тренировка</p>
-            <span className="span-first">1800 ₽</span>
-            <span className="span-last">1200 ₽</span>
+            <span className="span-first">1 000 грн</span>
+            <span className="span-last">650 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="frnds-card-footer">
@@ -28,8 +28,8 @@ const WithFriendsTrn = () => {
           <div className="frnds-card-header">
             <h4>3 человека</h4>
             <p>1 тренировка</p>
-            <span className="span-first">2700 ₽</span>
-            <span className="span-last">1650 ₽</span>
+            <span className="span-first">1 500 грн</span>
+            <span className="span-last">950 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="frnds-card-footer">
@@ -44,8 +44,8 @@ const WithFriendsTrn = () => {
           <div className="frnds-card-header">
             <h4>4 человека</h4>
             <p>1 тренировка</p>
-            <span className="span-first">3600 ₽</span>
-            <span className="span-last">2000 ₽</span>
+            <span className="span-first">2 000 грн</span>
+            <span className="span-last">1 100 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="frnds-card-footer">
@@ -60,8 +60,8 @@ const WithFriendsTrn = () => {
           <div className="frnds-card-header">
             <h4>Full-stack</h4>
             <p>1 тренировка</p>
-            <span className="span-first">4500 ₽</span>
-            <span className="span-last">2250 ₽</span>
+            <span className="span-first">2 550 грн</span>
+            <span className="span-last">1 250 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="frnds-card-footer">

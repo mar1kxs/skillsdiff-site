@@ -17,8 +17,8 @@ const OtherValo = () => {
                 <span style={{ color: "#FF4350" }}>Анализ игры</span> в Valorant
               </h4>
               <p>Глубокий разбор твоей игры с тренером</p>
-              <span className="span-first">2000 ₽</span>
-              <span className="span-last">1599 ₽</span>
+              <span className="span-first">1 100 грн</span>
+              <span className="span-last">900 грн</span>
               <button className="other-btn">Оплатить</button>
             </div>
             <img src={omen} alt="omen icon" />
@@ -46,8 +46,8 @@ const OtherValo = () => {
                 <span style={{ color: "#FF4350" }}>Party-игры</span> с тренером
               </h4>
               <p>Получайте анализ в реальном времени</p>
-              <span className="span-first">4000 ₽</span>
-              <span className="span-last">3199 ₽ </span>
+              <span className="span-first">2 250 грн</span>
+              <span className="span-last">1 800 грн </span>
               <button className="other-btn">Оплатить</button>
             </div>
             <img src={raze} alt="raze icon" />

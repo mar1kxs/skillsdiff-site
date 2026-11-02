@@ -17,8 +17,8 @@ const PersonalTrn = () => {
               познакомиться с программой 
             </p>
             <p className="p-last">1 тренировка</p>
-            <span className="span-first">900 ₽</span>
-            <span className="span-last">800 ₽</span>
+            <span className="span-first">500 грн</span>
+            <span className="span-last">450 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -38,8 +38,8 @@ const PersonalTrn = () => {
               Пакет “Start” научит тебя <br /> базовым навыкам игры
             </p>
             <p className="p-last">4 тренировки</p>
-            <span className="span-first">3600 ₽</span>
-            <span className="span-last">3 100 ₽</span>
+            <span className="span-first">2 000 грн</span>
+            <span className="span-last">1 750 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -59,8 +59,8 @@ const PersonalTrn = () => {
               Самая популярная программа <br /> по цене и качествам
             </p>
             <p className="p-last">8 тренировок</p>
-            <span className="span-first">7200 ₽</span>
-            <span className="span-last">5 800 ₽</span>
+            <span className="span-first">4 050 грн</span>
+            <span className="span-last">3 250 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
@@ -80,8 +80,8 @@ const PersonalTrn = () => {
               Самая популярная программа <br /> по цене и качествам
             </p>
             <p className="p-last">16 тренировок</p>
-            <span className="span-first">14400 ₽</span>
-            <span className="span-last">10 800 ₽</span>
+            <span className="span-first">8 100 грн</span>
+            <span className="span-last">6 050 грн</span>
             <button>Оплатить</button>
           </div>
           <div className="personal-card-dota-footer">
